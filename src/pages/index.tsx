@@ -1,4 +1,5 @@
 import { NextPage } from "next";
+import Hello from "~/components/Hello";
 
-const Page: NextPage = () => <h1>Helloworld!</h1>;
+const Page: NextPage = () => <Hello />;
 export default Page;
