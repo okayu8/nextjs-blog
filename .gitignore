@@ -1,4 +1,9 @@
-# See https://help.github.com/ignore-files/ for more about ignoring files.
+# next.js build output
+.next
+
+# dotenv environment variables file (build for Zeit Now)
+.env
+.env.build
 
 # dependencies
 /node_modules
