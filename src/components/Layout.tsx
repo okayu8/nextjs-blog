@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 
 const theme = {
-  main: 'red',
+  main: '#00b7ce',
 };
 
 type Props = {
@@ -22,7 +22,7 @@ const Layout: React.FC<Props> = ({ children, title }) => {
 };
 
 export const H1 = styled.h1`
-  color: red;
+  color: #00b7ce;
 `;
 
 export default Layout;
