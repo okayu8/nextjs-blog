@@ -7,6 +7,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
+    "post": "node scripts/create.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

@@ -1,9 +1,15 @@
 import Layout from '~/components/Layout';
+import { listContentFiles } from '~/lib/content-loader';
+const meta = {
+  title: '記事一覧',
+  date: '',
+  description: '',
+};
 
 const Posts = () => {
   return (
-    <Layout title="about">
-      <div>ブログを書いています。</div>
+    <Layout meta={meta}>
+      <div>リスト作る</div>
     </Layout>
   );
 };

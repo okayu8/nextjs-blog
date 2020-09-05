@@ -7,15 +7,19 @@ const theme = {
 
 type Props = {
   children?: React.ReactNode;
-  title: string;
+  meta: {
+    title: string;
+    date: string;
+    description: string;
+  };
 };
 
-const Layout: React.FC<Props> = ({ children, title }) => {
+const Layout: React.FC<Props> = ({ children, meta }) => {
   const siteTitle = 'Atomic Style Blog';
   return (
     <div>
       <H1>{siteTitle}</H1>
-      {title}
+      {meta.title}
       <ThemeProvider theme={theme}>{children}</ThemeProvider>
     </div>
   );
