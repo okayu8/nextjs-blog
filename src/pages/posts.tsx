@@ -1,5 +1,4 @@
 import Layout from '~/components/Layout';
-import { listContentFiles } from '~/lib/content-loader';
 const meta = {
   title: '記事一覧',
   date: '',
