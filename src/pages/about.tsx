@@ -1,8 +1,14 @@
 import Layout from '~/components/Layout';
 
+const meta = {
+  title: 'about',
+  date: '2020/09/06',
+  description: '',
+};
+
 const About = () => {
   return (
-    <Layout title="about">
+    <Layout meta={meta}>
       <div>ブログを書いています。</div>
     </Layout>
   );

@@ -4,10 +4,16 @@ import Layout from '~/components/Layout';
 
 // export const config = { amp: true };
 
+const meta = {
+  title: 'top',
+  date: '',
+  description: '',
+};
+
 const Page: NextPage = () => {
   // getPosts();
   return (
-    <Layout title="test">
+    <Layout meta={meta}>
       <Text>AtomicStyle.work</Text>
     </Layout>
   );
