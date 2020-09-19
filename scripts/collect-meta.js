@@ -1,8 +1,8 @@
 const fs = require('fs-extra');
 const path = require('path');
 const extractMetadata = require('extract-mdx-metadata');
-const pagePrefix = path.join(process.cwd(), 'src/pages/posts');
-const docsDir = path.join(process.cwd(), 'src/pages/posts');
+const pagePrefix = path.join(process.cwd(), 'src/pages/articles');
+const docsDir = path.join(process.cwd(), 'src/pages/articles');
 const targetPath = path.join(process.cwd(), 'src/data/metadata.json');
 const sitemap = require('nextjs-sitemap-generator');
 
@@ -77,7 +77,7 @@ const sortPosts = (data) => {
   // TODO: 作成時に整形したい
   sitemap({
     baseUrl: '',
-    pagesDirectory: path.join(process.cwd(), 'src/pages/posts'),
+    pagesDirectory: path.join(process.cwd(), 'src/pages/articles'),
     ignoredPaths: ['index'],
     targetDirectory: 'public/',
     nextConfigPath: path.join(__dirname, '../next.config.js'),

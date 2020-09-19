@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "npm run collect && next dev",
-    "build": "next build",
-    "start": "next start",
+    "build": "npm run collect && next build",
+    "start": "npm run collect && next start",
     "collect": "node scripts/collect-meta.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

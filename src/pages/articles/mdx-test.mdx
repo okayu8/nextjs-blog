@@ -1,0 +1,36 @@
+import Layout from '~/components/Layout';
+
+export const meta = {
+  title: 'mdxテスト',
+  date: '2020/09/06',
+  description: '',
+};
+
+# test h1
+
+## test h2
+
+- list1
+- list2
+- list3
+
+テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+テキストテキストテキストテキストテキストテキストテキスト
+テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+
+## test テスト
+
+```テスト
+const test = 0;
+```
+
+テスト手順`yarn test`を実行する
+
+テスト
+
+### h3 テスト
+
+**太字**テスト
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
