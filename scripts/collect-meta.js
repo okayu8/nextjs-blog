@@ -1,8 +1,8 @@
 const fs = require('fs-extra');
 const path = require('path');
 const extractMetadata = require('extract-mdx-metadata');
-const pagePrefix = path.join(process.cwd(), 'src/pages/posts');
-const docsDir = path.join(process.cwd(), 'src/pages/posts');
+const pagePrefix = path.join(process.cwd(), '/pages/posts');
+const docsDir = path.join(process.cwd(), '/pages/posts');
 const targetPath = path.join(process.cwd(), 'src/data/metadata.json');
 const sitemap = require('nextjs-sitemap-generator');
 
