@@ -5,7 +5,7 @@ import Layout from '~/components/Layout';
 // export const config = { amp: true };
 
 const meta = {
-  title: 'top',
+  title: '',
   date: '',
   description: '',
 };
