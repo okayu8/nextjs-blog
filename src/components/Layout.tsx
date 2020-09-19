@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 
 import CommonHeader from './organisms/common-header';
+import CommonFooter from './organisms/common-footer';
 import Const from '~/const';
 
 const theme = {
@@ -32,6 +33,7 @@ const Layout: React.FC<Props> = ({ children, meta }) => {
       <Container>
         <h1>{meta.title}</h1>
         <ThemeProvider theme={theme}>{children}</ThemeProvider>
+        <CommonFooter />
       </Container>
     </div>
   );
@@ -55,6 +57,11 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     background-color: ${Const.COLOR.BACKGROUND.BASE}
   };
+
+  a {
+    color: ${Const.COLOR.FONT.LINK};
+    text-decoration: none;
+  }
 `;
 
 const Container = styled.div`
