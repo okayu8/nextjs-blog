@@ -103,6 +103,7 @@ const SpIcons = styled.div`
 
 const P = styled.p`
   margin-left: ${Const.SIZE.MARGIN.LARGE}px;
+  cursor: pointer;
 `;
 
 export default CommonHeader;

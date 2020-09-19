@@ -5,6 +5,7 @@ export default {
   },
   FONT: {
     BASE: '#333333',
+    LINK: '#008BBB',
     SITE_TITLE: '#EEFFFF',
     NAV_ITEM: '#EEFFFF',
   },
