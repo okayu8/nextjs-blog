@@ -59,7 +59,7 @@ const GlobalStyle = createGlobalStyle`
 
 const Container = styled.div`
   margin: 0 auto;
-  padding: 0 ${Const.SIZE.MARGIN.XLARGE}px;
+  padding: ${Const.SIZE.MARGIN.XLARGE}px;
   max-width: ${Const.SIZE.WIDTH.CONTENT}px;
 `;
 

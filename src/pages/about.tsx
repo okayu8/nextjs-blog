@@ -1,7 +1,7 @@
 import Layout from '~/components/Layout';
 
 const meta = {
-  title: 'about',
+  title: 'ABOUT',
   date: '2020/09/06',
   description: '',
 };
@@ -9,7 +9,7 @@ const meta = {
 const About = () => {
   return (
     <Layout meta={meta}>
-      <div>ブログを書いています。</div>
+      <p>ブログを書いています。</p>
     </Layout>
   );
 };

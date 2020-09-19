@@ -2,16 +2,16 @@ import Layout from '~/components/Layout';
 import AllPostList from '~/components/organisms/all-post-list';
 
 const meta = {
-  title: '記事一覧',
+  title: 'ARTICLES',
   date: '',
   description: '',
 };
 
-const Posts = () => {
+const Articles = () => {
   return (
     <Layout meta={meta}>
       <AllPostList />
     </Layout>
   );
 };
-export default Posts;
+export default Articles;

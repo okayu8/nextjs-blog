@@ -2,7 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 
+import Icons from '~/components/atoms/icons';
 import Const from '~/const';
+
+const { ProfileIcon, PostIcon } = Icons;
 
 const CommonHeader = () => {
   return (
@@ -13,9 +16,9 @@ const CommonHeader = () => {
             <SiteTitle>Atomic Style Dev</SiteTitle>
           </Link>
         </TitleWrapper>
-        <ul>
+        <Ul>
           <Li>
-            <Link href="/posts">
+            <Link href="/articles">
               <NavItem>Articles</NavItem>
             </Link>
           </Li>
@@ -24,7 +27,19 @@ const CommonHeader = () => {
               <NavItem>About</NavItem>
             </Link>
           </Li>
-        </ul>
+        </Ul>
+        <SpIcons>
+          <Link href="/articles">
+            <P>
+              <PostIcon />
+            </P>
+          </Link>
+          <Link href="/about">
+            <P>
+              <ProfileIcon />
+            </P>
+          </Link>
+        </SpIcons>
       </Inner>
     </Wrapper>
   );
@@ -60,6 +75,12 @@ const SiteTitle = styled.a`
   cursor: pointer;
 `;
 
+const Ul = styled.ul`
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+`;
+
 const Li = styled.li`
   display: inline-box;
 `;
@@ -68,8 +89,20 @@ const NavItem = styled.a`
   color: ${Const.COLOR.FONT.NAV_ITEM};
   text-decoration: none;
   display: inline-block;
-  margin-left: 16px;
+  margin-left: ${Const.SIZE.MARGIN.LARGE}px;
   cursor: pointer;
+`;
+
+const SpIcons = styled.div`
+  display: flex;
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+`;
+
+const P = styled.p`
+  margin-left: ${Const.SIZE.MARGIN.LARGE}px;
 `;
 
 export default CommonHeader;
