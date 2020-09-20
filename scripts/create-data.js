@@ -1,8 +1,8 @@
 const fs = require('fs-extra');
 const path = require('path');
 const extractMetadata = require('extract-mdx-metadata');
-const pagePrefix = path.join(process.cwd(), 'src/pages/articles');
-const docsDir = path.join(process.cwd(), 'src/pages/articles');
+const pagePrefix = path.join(process.cwd(), 'src/pages');
+const docsDir = path.join(process.cwd(), 'src/pages');
 const targetPath = path.join(process.cwd(), 'src/data/metadata.json');
 const sitemap = require('nextjs-sitemap-generator');
 
@@ -27,10 +27,11 @@ const getMetadata = async (files, parentPath) => {
   );
 };
 
-const sortPosts = (data) => {
-  const posts = (data.find((item) => item.name === 'posts') || {}).children || [];
-  const sorted = posts
+const sortArticles = (data) => {
+  const articles = (data.find((item) => item.name === 'articles') || {}).children || [];
+  const sorted = articles
     .map((post) => {
+      console.log(new Date(post.meta.date));
       if (!post.meta) {
         console.error(`[missing metadata]: ${post.url}`);
         return post;
@@ -40,7 +41,6 @@ const sortPosts = (data) => {
         console.error(`[metadata]: missing key "title" in (${post.name}) ${post.url}`);
         console.error('> Please make sure that each post has a [title].');
       }
-
       if (!post.meta.date) {
         console.error(`[metadata]: missing key "date" in (${post.name}) ${post.url}`);
         console.error('> Try to run "new Date().toUTCString()" in console to get "date".');
@@ -57,7 +57,7 @@ const sortPosts = (data) => {
     .sort((pre, next) => +new Date(next.meta.date) - new Date(pre.meta.date));
 
   return data.map((v) => {
-    if (v.name !== 'posts') return v;
+    if (v.name !== 'articles') return v;
     return { ...v, children: sorted };
   });
 };
@@ -66,7 +66,7 @@ const sortPosts = (data) => {
   try {
     const files = await fs.readdir(docsDir);
     const data = await getMetadata(files, docsDir);
-    const sorted = sortPosts(data);
+    const sorted = sortArticles(data);
     await fs.ensureFile(targetPath);
     await fs.writeJson(targetPath, sorted);
   } catch (e) {

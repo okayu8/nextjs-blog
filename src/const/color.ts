@@ -2,6 +2,7 @@ export default {
   BACKGROUND: {
     BASE: '#F5F5F5',
     HEADER: '#555',
+    PANEL: '#FEFEFE',
   },
   FONT: {
     BASE: '#333333',

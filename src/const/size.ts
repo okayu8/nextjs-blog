@@ -1,6 +1,7 @@
 export default {
   FONT: {
     BASE: '16',
+    LARGE: '18',
     SITE_TITLE: '24',
   },
   WIDTH: {

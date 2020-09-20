@@ -9,7 +9,7 @@ const CommonFooter = () => {
     <Wrapper>
       <CopyRight>© 2020 atomicstyle.work</CopyRight>
       <P>
-        <Link href="./about">
+        <Link href="/about">
           <a>サイトについて</a>
         </Link>
       </P>
