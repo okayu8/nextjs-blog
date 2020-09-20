@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npm run collect && next dev",
-    "build": "npm run collect && next build",
-    "start": "npm run collect && next start",
-    "collect": "node scripts/collect-meta.js",
+    "dev": "npm run create && next dev",
+    "build": "npm run create && next build",
+    "start": "npm run create && next start",
+    "create": "node scripts/create-data.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
