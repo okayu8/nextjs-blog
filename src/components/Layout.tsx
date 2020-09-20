@@ -28,7 +28,7 @@ type Props = {
 };
 
 const Layout: React.FC<Props> = ({ children, meta }) => {
-  const tags = meta.tags ? meta.tags : [];
+  const tags = meta.tags || [];
   return (
     <div>
       <GlobalStyle />
