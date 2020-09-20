@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import PostItem from '../../molecules/post-item';
 import metadata from '~/data/metadata.json';
+import Const from '~/const';
 
 const allPosts = (data: any) => {
   const postNode = data.find((item: any) => item.name === 'articles');
@@ -21,6 +22,8 @@ const AllPostList = () => {
   );
 };
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  margin-top: ${Const.SIZE.MARGIN.XLARGE}px;
+`;
 
 export default AllPostList;
