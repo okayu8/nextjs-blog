@@ -8,11 +8,7 @@ const meta = {
   description: '',
 };
 
-// type Props = {
-//   param: string;
-// };
-
-const Tag = (params: any) => {
+const Tag = () => {
   useEffect(() => {
     const url = window.location.href;
     console.log(url);
