@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Layout from '~/components/Layout';
 
@@ -9,11 +9,14 @@ const meta = {
 };
 
 const Tag = () => {
+  const [tag, setTag] = useState('');
   useEffect(() => {
-    const url = window.location.href;
-    console.log(url);
+    const url = decodeURI(window.location.href);
+    const urlArray = url.split('/');
+    const tagName = urlArray.slice(-1)[0];
+    setTag(tagName);
   }, []);
-  return <Layout meta={meta}>test</Layout>;
+  return <Layout meta={meta}>{tag}</Layout>;
 };
 
 export default Tag;
