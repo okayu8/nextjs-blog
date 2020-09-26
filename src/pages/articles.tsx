@@ -1,5 +1,5 @@
 import Layout from '~/components/Layout';
-import AllPostList from '~/components/organisms/all-post-list';
+import PostList from '~/components/organisms/post-list';
 
 const meta = {
   title: 'ARTICLES',
@@ -10,7 +10,7 @@ const meta = {
 const Articles = () => {
   return (
     <Layout meta={meta}>
-      <AllPostList />
+      <PostList />
     </Layout>
   );
 };

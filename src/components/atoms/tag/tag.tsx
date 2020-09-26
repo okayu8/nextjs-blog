@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Link from 'next/link';
 
 import Const from '~/const';
 
@@ -9,7 +8,11 @@ type Props = {
 };
 
 const Tag = ({ tag }: Props) => {
-  return <Wrapper>{tag}</Wrapper>;
+  return (
+    <a href={`/tag/${tag}`}>
+      <Wrapper>{tag}</Wrapper>
+    </a>
+  );
 };
 
 const Wrapper = styled.div`
@@ -19,6 +22,7 @@ const Wrapper = styled.div`
   color: ${Const.COLOR.FONT.SITE_TITLE};
   background-color: ${Const.COLOR.BACKGROUND.TAG};
   border-radius: 16px;
+  cursor: pointer;
 `;
 
 export default Tag;

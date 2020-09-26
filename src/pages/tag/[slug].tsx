@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
 import Layout from '~/components/Layout';
+import PostList from '~/components/organisms/all-post-list';
 
 const meta = {
-  title: 'TAG',
+  title: 'Category',
   date: '',
   description: '',
 };
@@ -16,7 +17,12 @@ const Tag = () => {
     const tagName = urlArray.slice(-1)[0];
     setTag(tagName);
   }, []);
-  return <Layout meta={meta}>{tag}</Layout>;
+  return (
+    <Layout meta={meta}>
+      <h2>{tag}</h2>
+      <PostList tagName={tag} />
+    </Layout>
+  );
 };
 
 export default Tag;
