@@ -48,6 +48,7 @@ const Wrapper = styled.div`
 
 const Date = styled.p`
   margin: 0;
+  color: ${Const.COLOR.FONT.DATE};
 `;
 
 const Description = styled.p`

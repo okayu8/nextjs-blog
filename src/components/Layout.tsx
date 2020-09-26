@@ -3,6 +3,7 @@ import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 
 import CommonHeader from './organisms/common-header';
 import CommonFooter from './organisms/common-footer';
+import Tag from './atoms/tag';
 import Const from '~/const';
 
 const theme = {
@@ -22,16 +23,26 @@ type Props = {
     title?: string;
     date: string;
     description: string;
+    tags?: string[] | [];
   };
 };
 
 const Layout: React.FC<Props> = ({ children, meta }) => {
+  const tags = meta.tags || [];
   return (
     <div>
       <GlobalStyle />
       <CommonHeader />
       <Container>
-        <h1>{meta.title}</h1>
+        <H1>{meta.title}</H1>
+        <Date>{meta.date}</Date>
+        {tags && (
+          <TagsWrapper>
+            {tags.map((item: string, index: any) => {
+              return <Tag key={index} tag={item} />;
+            })}
+          </TagsWrapper>
+        )}
         <ThemeProvider theme={theme}>{children}</ThemeProvider>
         <CommonFooter />
       </Container>
@@ -68,6 +79,21 @@ const Container = styled.div`
   margin: 0 auto;
   padding: ${Const.SIZE.MARGIN.XLARGE}px;
   max-width: ${Const.SIZE.WIDTH.CONTENT}px;
+`;
+
+const H1 = styled.h1`
+  color: ${Const.COLOR.FONT.PAGE_TITLE};
+  margin: 0;
+`;
+
+const Date = styled.p`
+  color: ${Const.COLOR.FONT.DATE};
+  margin: 0;
+  text-align: right;
+`;
+
+const TagsWrapper = styled.div`
+  display: flex;
 `;
 
 export default Layout;
