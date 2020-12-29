@@ -3,6 +3,8 @@
 next.js + TypeScript で構築したブログ。
 記事は mdx で書ける。
 
+ブログサイト: <https://atomic-style-dev.vercel.app/>
+
 ## ライブラリ
 
 - styled-components
