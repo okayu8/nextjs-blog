@@ -4,6 +4,7 @@ export default {
     HEADER: '#555',
     PANEL: '#FEFEFE',
     TAG: '#AAAAAA',
+    PRE: '#EEE',
   },
   FONT: {
     BASE: '#333333',

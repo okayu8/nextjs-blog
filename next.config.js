@@ -1,6 +1,10 @@
 const path = require('path');
+const rehypePrism = require('@mapbox/rehype-prism');
 const withMDX = require('@next/mdx')({
   extension: /\.(md|mdx)?$/,
+  options: {
+    rehypePlugins: [rehypePrism],
+  },
 });
 
 const nextConfig = {
