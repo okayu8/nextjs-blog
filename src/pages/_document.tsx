@@ -19,6 +19,10 @@ export default class MyDocument extends Document<Props> {
       <Html lang="ja">
         <Head>
           <meta charSet="utf-8" />
+          <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism-tomorrow.min.css"
+            rel="stylesheet"
+          />
           {this.props.styleTags}
         </Head>
         <body>

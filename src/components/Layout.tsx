@@ -61,17 +61,22 @@ const GlobalStyle = createGlobalStyle`
     -ms-letter-spacing: .03em;
     letter-spacing: .03em;
     color: ${Const.COLOR.FONT.BASE};
-  };
+  }
 
   body {
     margin: ${Const.SIZE.HEIGHT.HEADER}px 0 0 0;
     padding: 0;
-    background-color: ${Const.COLOR.BACKGROUND.BASE}
-  };
+    background-color: ${Const.COLOR.BACKGROUND.BASE};
+  }
 
   a {
     color: ${Const.COLOR.FONT.LINK};
     text-decoration: none;
+  }
+
+  pre {
+    padding: ${Const.SIZE.FONT.BASE}px;
+    border-radius: 8px;
   }
 `;
 
