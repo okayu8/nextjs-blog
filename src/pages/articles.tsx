@@ -4,7 +4,7 @@ import PostList from '~/components/organisms/post-list';
 const meta = {
   title: 'ARTICLES',
   date: '',
-  description: '',
+  description: '記事一覧',
 };
 
 const Articles = () => {

@@ -3,7 +3,7 @@ import Layout from '~/components/Layout';
 const meta = {
   title: 'ABOUT',
   date: '2020/09/06',
-  description: '',
+  description: 'ブログについて',
 };
 
 const About = () => {
