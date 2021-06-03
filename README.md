@@ -35,3 +35,6 @@ npm run build
 
 - /src/pages/articles 配下に mdx ファイルを作成
 - meta に {title, date, description, tagas[]} を含める
+
+## デプロイ
+- vercelと連携されているため、masterブランチの更新時にデプロイされる
