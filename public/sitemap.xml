@@ -4,14 +4,19 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
       xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
       xmlns:xhtml="http://www.w3.org/1999/xhtml">
-      
-	<url>
-		<loc>/mdx-test</loc>
-		<lastmod>2021-06-03</lastmod>
-	</url>
-
-	<url>
-		<loc>/sample1</loc>
-		<lastmod>2021-06-03</lastmod>
-	</url>
-</urlset>
+      <url><loc>/mdx-test</loc>
+                
+                
+                
+                <lastmod>2021-06-14</lastmod>
+                </url><url><loc>/sample1</loc>
+                
+                
+                
+                <lastmod>2021-06-14</lastmod>
+                </url><url><loc>/syntax-highlight</loc>
+                
+                
+                
+                <lastmod>2021-06-14</lastmod>
+                </url></urlset>

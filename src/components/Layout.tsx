@@ -75,8 +75,12 @@ const GlobalStyle = createGlobalStyle`
   }
 
   pre {
-    padding: ${Const.SIZE.FONT.BASE}px;
+    font-size: 14px;
     border-radius: 8px;
+  }
+
+  code {
+    font-family: Consolas, Monaco, monospace;
   }
 `;
 
