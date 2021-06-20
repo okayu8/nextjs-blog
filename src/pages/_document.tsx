@@ -30,7 +30,10 @@ export default class MyDocument extends Document<Props> {
           /> */}
 
           {/* rehypeHighlight */}
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/styles/base16/harmonic16-dark.min.css"/>
+          <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/styles/base16/harmonic16-dark.min.css"
+          />
           {this.props.styleTags}
         </Head>
         <body>
