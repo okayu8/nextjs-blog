@@ -3,10 +3,10 @@ const path = require('path');
 const extractMetadata = require('extract-mdx-metadata');
 const pagePrefix = path.join(process.cwd(), 'src/pages');
 const docsDir = path.join(process.cwd(), 'src/pages');
-const targetPath = path.join(process.cwd(), 'src/data/metadata.json');
+const metaDataPath = path.join(process.cwd(), 'src/data/metadata.json');
+const tagsListPath = path.join(process.cwd(), 'src/data/tagList.json');
 const sitemap = require('nextjs-sitemap-generator');
 
-// TODO: Warning の除去
 const getMetadata = async (files, parentPath) => {
   return Promise.all(
     files
@@ -62,13 +62,39 @@ const sortArticles = (data) => {
   });
 };
 
+const getTagsList = (data) => {
+  let tagsList = []
+  data.map(item => {
+    if (item.name === 'articles') {
+      item.children.map(child => {
+        if (child.meta.tags) {
+          child.meta.tags.map(tag => {
+            if(!tagsList.includes(tag)){
+              tagsList.push(tag)
+            }
+          })
+        }
+      })
+    }
+  })
+
+  return {tagsList}
+}
+
 (async () => {
   try {
+    // metadata.jsonの生成
     const files = await fs.readdir(docsDir);
     const data = await getMetadata(files, docsDir);
     const sorted = sortArticles(data);
-    await fs.ensureFile(targetPath);
-    await fs.writeJson(targetPath, sorted);
+    await fs.ensureFile(metaDataPath);
+    await fs.writeJson(metaDataPath, sorted);
+    
+    //taglist.jsonの生成
+    const tagsList = getTagsList(data);
+    await fs.ensureFile(tagsListPath);
+    await fs.writeJson(tagsListPath, tagsList);
+
   } catch (e) {
     console.log(e);
     process.exit(1);
