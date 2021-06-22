@@ -4,9 +4,10 @@ const extractMetadata = require('extract-mdx-metadata');
 const pagePrefix = path.join(process.cwd(), 'src/pages');
 const docsDir = path.join(process.cwd(), 'src/pages');
 const metaDataPath = path.join(process.cwd(), 'src/data/metadata.json');
-const tagsListPath = path.join(process.cwd(), 'src/data/tagList.json');
+const tagsListPath = path.join(process.cwd(), 'src/data/tagslist.json');
 const sitemap = require('nextjs-sitemap-generator');
 
+// 各mdxのメタデータから取得したデータをまとめる
 const getMetadata = async (files, parentPath) => {
   return Promise.all(
     files
@@ -27,6 +28,7 @@ const getMetadata = async (files, parentPath) => {
   );
 };
 
+// 日付順にarticlesを並び替える
 const sortArticles = (data) => {
   const articles = (data.find((item) => item.name === 'articles') || {}).children || [];
   const sorted = articles
@@ -62,6 +64,7 @@ const sortArticles = (data) => {
   });
 };
 
+// metadataの各articleのtagsを取得し重複の無い配列として返す
 const getTagsList = (data) => {
   let tagsList = []
   data.map(item => {
@@ -70,16 +73,16 @@ const getTagsList = (data) => {
         if (child.meta.tags) {
           child.meta.tags.map(tag => {
             if(!tagsList.includes(tag)){
-              tagsList.push(tag)
+              tagsList.push(tag);
             }
-          })
+          });
         }
-      })
+      });
     }
-  })
+  });
 
-  return {tagsList}
-}
+  return tagsList;
+};
 
 (async () => {
   try {
