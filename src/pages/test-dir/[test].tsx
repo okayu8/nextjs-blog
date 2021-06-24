@@ -15,7 +15,7 @@ const Test: NextPage<Props> = ({ testStr }) => {
 }
 
 // 最初に実行される。事前ビルドするパスを配列でreturnする。
-export const getStaticPaths:GetStaticPaths<Props> = async() => {
+export const getStaticPaths:GetStaticPaths = async() => {
   const strs = ['sample1', 'sample2', 'sample3']
   const paths = strs.map(str => `/test-dir/${str}`)
   return { paths, fallback: false }

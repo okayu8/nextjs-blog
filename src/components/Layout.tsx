@@ -76,11 +76,11 @@ const GlobalStyle = createGlobalStyle`
 
   pre {
     font-size: 14px;
-    border-radius: 8px;
   }
 
   code {
     font-family: Consolas, Monaco, monospace;
+    border-radius: 4px;
   }
 `;
 

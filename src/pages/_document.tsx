@@ -6,6 +6,7 @@ type Props = {
 };
 
 export default class MyDocument extends Document<Props> {
+  // storybookのスタイルをレスポンス時にHTMLに入れ込む
   static getInitialProps({ renderPage }: any) {
     const sheet = new ServerStyleSheet();
     const page = renderPage((App: any) => (props: any) => sheet.collectStyles(<App {...props} />));
@@ -23,17 +24,8 @@ export default class MyDocument extends Document<Props> {
             name="google-site-verification"
             content="DcJ0IOsJnzOHr4u9Fa9HNa03_DmyRiO6_4Hh33bXhSQ"
           />
-          {/* prism */}
-          {/* <link
-            href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism-tomorrow.min.css"
-            rel="stylesheet"
-          /> */}
-
           {/* rehypeHighlight */}
-          <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/styles/base16/harmonic16-dark.min.css"
-          />
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/styles/base16/harmonic16-dark.min.css"/>
           {this.props.styleTags}
         </Head>
         <body>
