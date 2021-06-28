@@ -1,19 +1,19 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
-import Const from '~/const';
+import Const from '~/const'
 
 type Props = {
-  tag: string;
-};
+  tag: string
+}
 
 const Tag = ({ tag }: Props) => {
   return (
     <a href={`/tag/${tag}`}>
       <Wrapper>{tag}</Wrapper>
     </a>
-  );
-};
+  )
+}
 
 const Wrapper = styled.div`
   margin: ${Const.SIZE.MARGIN.SMALL}px;
@@ -23,6 +23,6 @@ const Wrapper = styled.div`
   background-color: ${Const.COLOR.BACKGROUND.TAG};
   border-radius: 16px;
   cursor: pointer;
-`;
+`
 
-export default Tag;
+export default Tag

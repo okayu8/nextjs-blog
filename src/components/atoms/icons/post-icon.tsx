@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const PostIcon = () => {
   return (
@@ -23,7 +23,7 @@ const PostIcon = () => {
         ></path>
       </g>
     </svg>
-  );
-};
+  )
+}
 
-export default PostIcon;
+export default PostIcon

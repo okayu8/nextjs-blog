@@ -1,17 +1,18 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document';
-import { ServerStyleSheet } from 'styled-components';
+import Document, { DocumentContext, Html, Head, Main, NextScript } from 'next/document'
+import { ServerStyleSheet } from 'styled-components'
 
 type Props = {
-  styleTags: any;
-};
+  styleTags: JSX.Element
+}
 
 export default class MyDocument extends Document<Props> {
-  static getInitialProps({ renderPage }: any) {
-    const sheet = new ServerStyleSheet();
-    const page = renderPage((App: any) => (props: any) => sheet.collectStyles(<App {...props} />));
-    const styleTags = sheet.getStyleElement();
+  // storybookのスタイルをレスポンス時にHTMLに入れ込む
+  static async getInitialProps(ctx: DocumentContext) {
+    const sheet = new ServerStyleSheet()
+    const page = ctx.renderPage((App) => (props) => sheet.collectStyles(<App {...props} />))
+    const styleTags = sheet.getStyleElement()
 
-    return { ...page, styleTags };
+    return { ...page, styleTags }
   }
 
   render() {
@@ -23,12 +24,6 @@ export default class MyDocument extends Document<Props> {
             name="google-site-verification"
             content="DcJ0IOsJnzOHr4u9Fa9HNa03_DmyRiO6_4Hh33bXhSQ"
           />
-          {/* prism */}
-          {/* <link
-            href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.9.0/themes/prism-tomorrow.min.css"
-            rel="stylesheet"
-          /> */}
-
           {/* rehypeHighlight */}
           <link
             rel="stylesheet"
@@ -42,6 +37,6 @@ export default class MyDocument extends Document<Props> {
           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
         </body>
       </Html>
-    );
+    )
   }
 }
