@@ -6,7 +6,9 @@ export default {
     SITE_TITLE: '24',
   },
   WIDTH: {
+    TABLE_OF_CONTENT: '320',
     CONTENT: '720',
+    WIDE_CONTENT: '1120',
   },
   HEIGHT: {
     HEADER: '64',

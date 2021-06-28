@@ -56,7 +56,7 @@ const Wrapper = styled.header`
 const Inner = styled.div`
   margin: 0 auto;
   padding: 0 ${Const.SIZE.MARGIN.XLARGE}px;
-  max-width: ${Const.SIZE.WIDTH.CONTENT}px;
+  max-width: ${Const.SIZE.WIDTH.WIDE_CONTENT}px;
   height: 100%;
   display: flex;
   justify-content: space-between;

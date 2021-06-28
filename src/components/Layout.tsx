@@ -34,16 +34,21 @@ const Layout: React.FC<Props> = ({ children, meta }) => {
       <GlobalStyle />
       <CommonHeader />
       <Container>
-        <H1>{meta.title}</H1>
-        <Date>{meta.date}</Date>
-        {tags && (
-          <TagsWrapper>
-            {tags.map((item: string, index: any) => {
-              return <Tag key={index} tag={item} />
-            })}
-          </TagsWrapper>
-        )}
-        <ThemeProvider theme={theme}>{children}</ThemeProvider>
+        <PostContainer>
+          <SideBar>test </SideBar>
+          <PostContent>
+            <H1>{meta.title}</H1>
+            <Date>{meta.date}</Date>
+            {tags && (
+              <TagsWrapper>
+                {tags.map((item: string, index: any) => {
+                  return <Tag key={index} tag={item} />
+                })}
+              </TagsWrapper>
+            )}
+            <ThemeProvider theme={theme}>{children}</ThemeProvider>
+          </PostContent>
+        </PostContainer>
         <CommonFooter />
       </Container>
     </div>
@@ -87,7 +92,7 @@ const GlobalStyle = createGlobalStyle`
 const Container = styled.div`
   margin: 0 auto;
   padding: ${Const.SIZE.MARGIN.XLARGE}px;
-  max-width: ${Const.SIZE.WIDTH.CONTENT}px;
+  max-width: ${Const.SIZE.WIDTH.WIDE_CONTENT}px;
 `
 
 const H1 = styled.h1`
@@ -103,6 +108,29 @@ const Date = styled.p`
 
 const TagsWrapper = styled.div`
   display: flex;
+`
+
+const PostContainer = styled.div`
+  display: flex;
+  flex-direction: flex-between;
+`
+
+const PostContent = styled.div`
+  width: 100%;
+  margin-left: ${Const.SIZE.WIDTH.TABLE_OF_CONTENT}px;
+
+  @media screen and (max-width: 768px) {
+    margin-left: 0;
+  }
+`
+
+const SideBar = styled.div`
+  width: ${Const.SIZE.WIDTH.TABLE_OF_CONTENT}px;
+  position: fixed;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `
 
 export default Layout
