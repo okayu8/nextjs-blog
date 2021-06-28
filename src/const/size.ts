@@ -18,4 +18,4 @@ export default {
     XLARGE: '24',
     XXLARGE: '40',
   },
-} as const;
+} as const

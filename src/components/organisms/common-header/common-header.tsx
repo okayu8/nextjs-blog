@@ -1,11 +1,11 @@
-import React from 'react';
-import styled from 'styled-components';
-import Link from 'next/link';
+import React from 'react'
+import styled from 'styled-components'
+import Link from 'next/link'
 
-import Icons from '~/components/atoms/icons';
-import Const from '~/const';
+import Icons from '~/components/atoms/icons'
+import Const from '~/const'
 
-const { ProfileIcon, PostIcon } = Icons;
+const { ProfileIcon, PostIcon } = Icons
 
 const CommonHeader = () => {
   return (
@@ -42,8 +42,8 @@ const CommonHeader = () => {
         </SpIcons>
       </Inner>
     </Wrapper>
-  );
-};
+  )
+}
 
 const Wrapper = styled.header`
   position: fixed;
@@ -51,7 +51,7 @@ const Wrapper = styled.header`
   width: 100%;
   height: ${Const.SIZE.HEIGHT.HEADER}px;
   background-color: ${Const.COLOR.BACKGROUND.HEADER};
-`;
+`
 
 const Inner = styled.div`
   margin: 0 auto;
@@ -60,12 +60,12 @@ const Inner = styled.div`
   height: 100%;
   display: flex;
   justify-content: space-between;
-`;
+`
 
 const TitleWrapper = styled.div`
   height: 100%;
   display: flex;
-`;
+`
 
 const SiteTitle = styled.a`
   margin: auto;
@@ -73,17 +73,17 @@ const SiteTitle = styled.a`
   font-size: 1.6em;
   text-decoration: none;
   cursor: pointer;
-`;
+`
 
 const Ul = styled.ul`
   @media screen and (max-width: 767px) {
     display: none;
   }
-`;
+`
 
 const Li = styled.li`
   display: inline-box;
-`;
+`
 
 const NavItem = styled.a`
   color: ${Const.COLOR.FONT.NAV_ITEM};
@@ -91,7 +91,7 @@ const NavItem = styled.a`
   display: inline-block;
   margin-left: ${Const.SIZE.MARGIN.LARGE}px;
   cursor: pointer;
-`;
+`
 
 const SpIcons = styled.div`
   display: flex;
@@ -99,11 +99,11 @@ const SpIcons = styled.div`
   @media screen and (min-width: 768px) {
     display: none;
   }
-`;
+`
 
 const P = styled.p`
   margin-left: ${Const.SIZE.MARGIN.LARGE}px;
   cursor: pointer;
-`;
+`
 
-export default CommonHeader;
+export default CommonHeader

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const ProfileIcon = () => {
   return (
@@ -33,7 +33,7 @@ const ProfileIcon = () => {
         ></path>
       </g>
     </svg>
-  );
-};
+  )
+}
 
-export default ProfileIcon;
+export default ProfileIcon

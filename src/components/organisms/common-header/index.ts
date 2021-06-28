@@ -1,3 +1,3 @@
-import CommonHeader from './common-header';
+import CommonHeader from './common-header'
 
-export default CommonHeader;
+export default CommonHeader

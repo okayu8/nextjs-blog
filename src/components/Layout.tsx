@@ -1,10 +1,10 @@
-import React from 'react';
-import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
+import React from 'react'
+import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
 
-import CommonHeader from './organisms/common-header';
-import CommonFooter from './organisms/common-footer';
-import Tag from './atoms/tag';
-import Const from '~/const';
+import CommonHeader from './organisms/common-header'
+import CommonFooter from './organisms/common-footer'
+import Tag from './atoms/tag'
+import Const from '~/const'
 
 const theme = {
   colors: {
@@ -15,20 +15,20 @@ const theme = {
   layout: {
     width: 960,
   },
-} as const;
+} as const
 
 type Props = {
-  children?: React.ReactNode;
+  children?: React.ReactNode
   meta: {
-    title?: string;
-    date: string;
-    description: string;
-    tags?: string[] | [];
-  };
-};
+    title?: string
+    date: string
+    description: string
+    tags?: string[] | []
+  }
+}
 
 const Layout: React.FC<Props> = ({ children, meta }) => {
-  const tags = meta.tags || [];
+  const tags = meta.tags || []
   return (
     <div>
       <GlobalStyle />
@@ -39,7 +39,7 @@ const Layout: React.FC<Props> = ({ children, meta }) => {
         {tags && (
           <TagsWrapper>
             {tags.map((item: string, index: any) => {
-              return <Tag key={index} tag={item} />;
+              return <Tag key={index} tag={item} />
             })}
           </TagsWrapper>
         )}
@@ -47,8 +47,8 @@ const Layout: React.FC<Props> = ({ children, meta }) => {
         <CommonFooter />
       </Container>
     </div>
-  );
-};
+  )
+}
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -82,27 +82,27 @@ const GlobalStyle = createGlobalStyle`
     font-family: Consolas, Monaco, monospace;
     border-radius: 4px;
   }
-`;
+`
 
 const Container = styled.div`
   margin: 0 auto;
   padding: ${Const.SIZE.MARGIN.XLARGE}px;
   max-width: ${Const.SIZE.WIDTH.CONTENT}px;
-`;
+`
 
 const H1 = styled.h1`
   color: ${Const.COLOR.FONT.PAGE_TITLE};
   margin: 0;
-`;
+`
 
 const Date = styled.p`
   color: ${Const.COLOR.FONT.DATE};
   margin: 0;
   text-align: right;
-`;
+`
 
 const TagsWrapper = styled.div`
   display: flex;
-`;
+`
 
-export default Layout;
+export default Layout

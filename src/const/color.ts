@@ -14,4 +14,4 @@ export default {
     DATE: '#999999',
     NAV_ITEM: '#EEFFFF',
   },
-} as const;
+} as const

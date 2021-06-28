@@ -1,3 +1,3 @@
-import CommonFooter from './common-footer';
+import CommonFooter from './common-footer'
 
-export default CommonFooter;
+export default CommonFooter

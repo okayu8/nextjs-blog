@@ -1,21 +1,21 @@
-import React from 'react';
-import styled from 'styled-components';
-import Link from 'next/link';
+import React from 'react'
+import styled from 'styled-components'
+import Link from 'next/link'
 
-import Const from '~/const';
+import Const from '~/const'
 
 type Props = {
   post: {
-    name: string;
-    url: string;
+    name: string
+    url: string
     meta: {
-      title: string;
-      date: string;
-      description: string;
-      tags: string[] | [];
-    };
-  };
-};
+      title: string
+      date: string
+      description: string
+      tags: string[] | []
+    }
+  }
+}
 
 const PostItem = ({
   post: {
@@ -32,8 +32,8 @@ const PostItem = ({
       </Link>
       <Description>{description}</Description>
     </Wrapper>
-  );
-};
+  )
+}
 
 const Wrapper = styled.div`
   margin: 0 0 ${Const.SIZE.MARGIN.XLARGE}px;
@@ -44,16 +44,16 @@ const Wrapper = styled.div`
   > a {
     font-size: ${Const.SIZE.FONT.SITE_TITLE}px;
   }
-`;
+`
 
 const Date = styled.p`
   margin: 0;
   color: ${Const.COLOR.FONT.DATE};
-`;
+`
 
 const Description = styled.p`
   margin: 0;
   font-size: ${Const.SIZE.FONT.LARGE};
-`;
+`
 
-export default PostItem;
+export default PostItem
