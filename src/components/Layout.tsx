@@ -25,18 +25,19 @@ type Props = {
     description: string
     tags?: string[] | []
   }
+  type?: 'normal' | 'post'
 }
 
-const Layout: React.FC<Props> = ({ children, meta }) => {
+const Layout: React.FC<Props> = ({ children, meta, type = 'normal' }) => {
   const tags = meta.tags || []
   return (
     <div>
       <GlobalStyle />
       <CommonHeader />
-      <Container>
-        <PostContainer>
-          <SideBar>test </SideBar>
-          <PostContent>
+      <Wrapper>
+        {type === 'post' && <SideBar>test </SideBar>}
+        <Container>
+          <MainContent type={type}>
             <H1>{meta.title}</H1>
             <Date>{meta.date}</Date>
             {tags && (
@@ -47,10 +48,10 @@ const Layout: React.FC<Props> = ({ children, meta }) => {
               </TagsWrapper>
             )}
             <ThemeProvider theme={theme}>{children}</ThemeProvider>
-          </PostContent>
-        </PostContainer>
+          </MainContent>
+        </Container>
         <CommonFooter />
-      </Container>
+      </Wrapper>
     </div>
   )
 }
@@ -89,7 +90,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-const Container = styled.div`
+const Wrapper = styled.div`
   margin: 0 auto;
   padding: ${Const.SIZE.MARGIN.XLARGE}px;
   max-width: ${Const.SIZE.WIDTH.WIDE_CONTENT}px;
@@ -110,23 +111,36 @@ const TagsWrapper = styled.div`
   display: flex;
 `
 
-const PostContainer = styled.div`
+const Container = styled.div`
   display: flex;
-  flex-direction: flex-between;
+  justify-content: space-between;
+  align-items: flex-start;
 `
 
-const PostContent = styled.div`
-  width: 100%;
-  margin-left: ${Const.SIZE.WIDTH.TABLE_OF_CONTENT}px;
+const MainContent = styled.main<{ type?: 'normal' | 'post' }>(
+  ({ type }) => `
+    width: ${Const.SIZE.WIDTH.CONTENT}px;
+    margin: 0 auto;
+    ${
+      type !== 'normal' &&
+      `
+        margin: 0 0 0 340px ;
+        width: 100%;
+      `
+    }
 
-  @media screen and (max-width: 768px) {
-    margin-left: 0;
-  }
-`
+    @media screen and (max-width: 768px) {
+      margin: 0 auto;
+    }
+  `,
+)
 
 const SideBar = styled.div`
-  width: ${Const.SIZE.WIDTH.TABLE_OF_CONTENT}px;
   position: fixed;
+  width: ${Const.SIZE.WIDTH.TABLE_OF_CONTENT}px;
+  background: ${Const.COLOR.BACKGROUND.PANEL};
+  padding: ${Const.SIZE.MARGIN.LARGE}px;
+  border-radius: 4px;
 
   @media screen and (max-width: 768px) {
     display: none;

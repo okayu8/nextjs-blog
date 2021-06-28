@@ -1,4 +1,4 @@
-import Layout from '~/components/Layout';
+import Layout from '~/components/Layout'
 
 export const meta = {
   title: '【rehype-highlight】シンタックスハイライトの導入方法',
@@ -6,9 +6,12 @@ export const meta = {
   description:
     'Next.jsでブログを作ってみた。rehype-highlightを利用したシンタックスハイライトの導入方法。',
   tags: ['next.js', 'Frontend'],
-};
+}
 
 # test h1
 
-
-export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+export default ({ children }) => (
+  <Layout meta={meta} type="post">
+    {children}
+  </Layout>
+)

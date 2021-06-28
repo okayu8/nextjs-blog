@@ -1,4 +1,4 @@
-import Layout from '~/components/Layout';
+import Layout from '~/components/Layout'
 
 export const meta = {
   title: 'mdxテスト',
@@ -6,7 +6,7 @@ export const meta = {
   description:
     '説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文',
   tags: ['test', 'サンプル'],
-};
+}
 
 # test h1
 
@@ -31,9 +31,11 @@ const test2 = 2;
 ```
 
 テスト手順
+
 ```bash
 yarn test
 ```
+
 を実行する
 
 テスト
@@ -42,4 +44,8 @@ yarn test
 
 **太字**テスト
 
-export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+export default ({ children }) => (
+  <Layout meta={meta} type="post">
+    {children}
+  </Layout>
+)
