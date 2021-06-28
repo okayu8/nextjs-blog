@@ -1,15 +1,15 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document';
+import Document, { DocumentContext, Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
 type Props = {
-  styleTags: any;
+  styleTags: JSX.Element;
 };
 
 export default class MyDocument extends Document<Props> {
   // storybookのスタイルをレスポンス時にHTMLに入れ込む
-  static getInitialProps({ renderPage }: any) {
+  static async getInitialProps(ctx: DocumentContext) {
     const sheet = new ServerStyleSheet();
-    const page = renderPage((App: any) => (props: any) => sheet.collectStyles(<App {...props} />));
+    const page = ctx.renderPage((App) => (props) => sheet.collectStyles(<App {...props} />));
     const styleTags = sheet.getStyleElement();
 
     return { ...page, styleTags };
