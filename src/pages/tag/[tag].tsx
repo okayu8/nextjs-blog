@@ -8,7 +8,7 @@ import PostList from '~/components/organisms/post-list'
 import tagslist from '~/data/tagslist.json'
 
 type Props = {
-  tag: string
+  tagName: string
 }
 
 type Params = ParsedUrlQuery & {
@@ -22,11 +22,11 @@ const meta = {
   description: '',
 }
 
-const Test: NextPage<Props> = ({ tag }) => {
+const Test: NextPage<Props> = ({ tagName }) => {
   return (
     <Layout meta={meta}>
-      <h2>#{tag}</h2>
-      <PostList tagName={tag} />
+      <h2>#{tagName}</h2>
+      <PostList tagName={tagName} />
     </Layout>
   )
 }
@@ -40,8 +40,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 // ルーティングの情報が入ったparamsを受け取る
 export const getStaticProps: GetStaticProps<Props, Params> = async ({ params }) => {
-  const test = 'test'
-  return { props: { tag: params ? params.tag : test } }
+  return { props: { tagName: params ? params.tag : '' } }
 }
 
 export default Test
