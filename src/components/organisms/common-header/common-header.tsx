@@ -13,7 +13,7 @@ const CommonHeader = () => {
       <Inner>
         <TitleWrapper>
           <Link href="/">
-            <SiteTitle>Atomic Style Dev</SiteTitle>
+            <SiteTitle>OKLog</SiteTitle>
           </Link>
         </TitleWrapper>
         <Ul>

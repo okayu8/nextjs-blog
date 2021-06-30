@@ -4,6 +4,7 @@ import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
 import CommonHeader from './organisms/common-header'
 import CommonFooter from './organisms/common-footer'
 import Tag from './atoms/tag'
+import Toc from './toc'
 import Const from '~/const'
 
 const theme = {
@@ -35,7 +36,11 @@ const Layout: React.FC<Props> = ({ children, meta, type = 'normal' }) => {
       <GlobalStyle />
       <CommonHeader />
       <Wrapper>
-        {type === 'post' && <SideBar>test </SideBar>}
+        {type === 'post' && (
+          <SideBar>
+            <Toc />
+          </SideBar>
+        )}
         <Container>
           <MainContent type={type}>
             <H1>{meta.title}</H1>

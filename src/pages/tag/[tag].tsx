@@ -2,7 +2,7 @@ import React from 'react'
 import { GetStaticProps, GetStaticPaths, NextPage } from 'next'
 import { ParsedUrlQuery } from 'querystring'
 
-import Layout from '~/components/Layout'
+import Layout from '~/components/layout'
 import PostList from '~/components/organisms/post-list'
 
 import tagslist from '~/data/tagslist.json'
@@ -17,7 +17,7 @@ type Params = ParsedUrlQuery & {
 }
 
 const meta = {
-  title: 'Category',
+  title: 'Topic',
   date: '',
   description: '',
 }
