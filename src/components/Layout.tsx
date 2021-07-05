@@ -1,10 +1,10 @@
 import React from 'react'
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
 
-import CommonHeader from './organisms/common-header'
-import CommonFooter from './organisms/common-footer'
-import Tag from './atoms/tag'
-import Toc from './toc'
+import CommonHeader from './common-header'
+import CommonFooter from './common-footer'
+import Tag from './tag'
+import Toc from './Toc'
 import Const from '~/const'
 
 const theme = {

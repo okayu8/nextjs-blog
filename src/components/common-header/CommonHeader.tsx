@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Link from 'next/link'
 
-import Icons from '~/components/atoms/icons'
+import Icons from '~/components/icons'
 import Const from '~/const'
 
 const { ProfileIcon, PostIcon } = Icons

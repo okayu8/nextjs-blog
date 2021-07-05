@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import PostItem from '../../molecules/post-item'
+import PostItem from '../post-item'
 import metadata from '~/data/metadata.json'
 import Const from '~/const'
 

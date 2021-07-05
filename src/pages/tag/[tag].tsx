@@ -2,8 +2,8 @@ import React from 'react'
 import { GetStaticProps, GetStaticPaths, NextPage } from 'next'
 import { ParsedUrlQuery } from 'querystring'
 
-import Layout from '~/components/layout'
-import PostList from '~/components/organisms/post-list'
+import Layout from '~/components/Layout'
+import PostList from '~/components/post-list'
 
 import tagslist from '~/data/tagslist.json'
 
