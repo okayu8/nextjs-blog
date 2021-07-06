@@ -37,7 +37,6 @@ const parseTitleToLinkId = (s: string) => {
 }
 
 const Toc: React.FC<Props> = ({ headlines }) => {
-  console.log(headlines)
   const renderHeadline = (headline: HeadLineType) => (
     <Fragment key={headline.title}>
       <a href={parseTitleToLinkId(headline.title)}>

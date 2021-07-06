@@ -133,7 +133,6 @@ const GlobalStyle = createGlobalStyle`
 
 const Layout: React.FC<Props> = ({ children, meta, headlines, type = 'normal' }) => {
   const tags = meta.tags || []
-  console.log(headlines)
   return (
     <div>
       <GlobalStyle />
