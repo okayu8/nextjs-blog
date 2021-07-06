@@ -4,19 +4,6 @@ import Link from 'next/link'
 
 import Const from '~/const'
 
-const CommonFooter = () => {
-  return (
-    <Wrapper>
-      <CopyRight>© 2020 atomicstyle.work</CopyRight>
-      <P>
-        <Link href="/about">
-          <a>サイトについて</a>
-        </Link>
-      </P>
-    </Wrapper>
-  )
-}
-
 const Wrapper = styled.div`
   width: 100%;
   margin-top: ${Const.SIZE.MARGIN.XXLARGE}px;
@@ -31,5 +18,18 @@ const CopyRight = styled.p`
 const P = styled.p`
   margin: 8px 0;
 `
+
+const CommonFooter: React.FC = () => {
+  return (
+    <Wrapper>
+      <CopyRight>© 2020 atomicstyle.work</CopyRight>
+      <P>
+        <Link href="/about">
+          <a>サイトについて</a>
+        </Link>
+      </P>
+    </Wrapper>
+  )
+}
 
 export default CommonFooter

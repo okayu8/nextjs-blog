@@ -1,9 +1,10 @@
 import React from 'react'
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
 
-import CommonHeader from './common-header'
-import CommonFooter from './common-footer'
-import Tag from './tag'
+import CommonHeader from './CommonHeader'
+import CommonFooter from './CommonFooter'
+import Tag from './Tag'
+import Toc, { HeadLineType } from './Toc'
 
 import Const from '~/const'
 
@@ -26,70 +27,9 @@ type Props = {
     description: string
     tags?: string[] | []
   }
+  headlines?: HeadLineType[]
   type?: 'normal' | 'post'
 }
-
-const Layout: React.FC<Props> = ({ children, meta, type = 'normal' }) => {
-  const tags = meta.tags || []
-  return (
-    <div>
-      <GlobalStyle />
-      <CommonHeader />
-      <Wrapper>
-        {type === 'post' && <SideBar />}
-        <Container>
-          <MainContent type={type}>
-            <H1>{meta.title}</H1>
-            <Date>{meta.date}</Date>
-            {tags && (
-              <TagsWrapper>
-                {tags.map((item: string, index: any) => {
-                  return <Tag key={index} tag={item} />
-                })}
-              </TagsWrapper>
-            )}
-            <ThemeProvider theme={theme}>{children}</ThemeProvider>
-          </MainContent>
-        </Container>
-        <CommonFooter />
-      </Wrapper>
-    </div>
-  )
-}
-
-const GlobalStyle = createGlobalStyle`
-  html {
-    font-family: "-apple-system","BlinkMacSystemFont","Helvetica Neue","Segoe UI","Hiragino Kaku Gothic ProN","Hiragino Sans","ヒラギノ角ゴ ProN W3","Arial","メイリオ","Meiryo","sans-serif";
-    line-height: 1.75;
-    font-weight: 400;
-    font-size: ${Const.SIZE.FONT.BASE}px;
-    -webkit-letter-spacing: .03em;
-    -moz-letter-spacing: .03em;
-    -ms-letter-spacing: .03em;
-    letter-spacing: .03em;
-    color: ${Const.COLOR.FONT.BASE};
-  }
-
-  body {
-    margin: ${Const.SIZE.HEIGHT.HEADER}px 0 0 0;
-    padding: 0;
-    background-color: ${Const.COLOR.BACKGROUND.BASE};
-  }
-
-  a {
-    color: ${Const.COLOR.FONT.LINK};
-    text-decoration: none;
-  }
-
-  pre {
-    font-size: 14px;
-  }
-
-  code {
-    font-family: Consolas, Monaco, monospace;
-    border-radius: 4px;
-  }
-`
 
 const Wrapper = styled.div`
   margin: 0 auto;
@@ -147,5 +87,82 @@ const SideBar = styled.div`
     display: none;
   }
 `
+
+const GlobalStyle = createGlobalStyle`
+  html {
+    font-family: "-apple-system","BlinkMacSystemFont","Helvetica Neue","Segoe UI","Hiragino Kaku Gothic ProN","Hiragino Sans","ヒラギノ角ゴ ProN W3","Arial","メイリオ","Meiryo","sans-serif";
+    line-height: 1.75;
+    font-weight: 400;
+    font-size: ${Const.SIZE.FONT.BASE}px;
+    -webkit-letter-spacing: .03em;
+    -moz-letter-spacing: .03em;
+    -ms-letter-spacing: .03em;
+    letter-spacing: .03em;
+    color: ${Const.COLOR.FONT.BASE};
+  }
+
+  body {
+    margin: ${Const.SIZE.HEIGHT.HEADER}px 0 0 0;
+    padding: 0;
+    background-color: ${Const.COLOR.BACKGROUND.BASE};
+  }
+
+  a {
+    color: ${Const.COLOR.FONT.LINK};
+    text-decoration: none;
+  }
+
+  pre {
+    font-size: 14px;
+  }
+
+  code {
+    font-family: Consolas, Monaco, monospace;
+    border-radius: 4px;
+  }
+
+  h1, h2, h3, h4, h5 {
+    &::before {
+      display: block;
+      height: 6rem;
+      margin-top: -6rem;
+      content: "";
+    }
+  }
+`
+
+const Layout: React.FC<Props> = ({ children, meta, headlines, type = 'normal' }) => {
+  const tags = meta.tags || []
+  console.log(headlines)
+  return (
+    <div>
+      <GlobalStyle />
+      <CommonHeader />
+      <Wrapper>
+        {/* 規模が大きくなったらテンプレート分ける */}
+        {type === 'post' && (
+          <SideBar>
+            <Toc headlines={headlines} />
+          </SideBar>
+        )}
+        <Container>
+          <MainContent type={type}>
+            <H1>{meta.title}</H1>
+            <Date>{meta.date}</Date>
+            {tags && (
+              <TagsWrapper>
+                {tags.map((item: string, index: any) => {
+                  return <Tag key={index} tag={item} />
+                })}
+              </TagsWrapper>
+            )}
+            <ThemeProvider theme={theme}>{children}</ThemeProvider>
+          </MainContent>
+        </Container>
+        <CommonFooter />
+      </Wrapper>
+    </div>
+  )
+}
 
 export default Layout

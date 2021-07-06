@@ -8,6 +8,16 @@ export const meta = {
   tags: ['test', 'サンプル'],
 }
 
+export const headlines = [
+  {
+    title: 'test h1',
+    children: [
+      { title: 'test h2', children: [] },
+      { title: 'test テスト', children: [{ title: 'h3 テスト', children: [] }] },
+    ],
+  },
+]
+
 # test h1
 
 ## test h2
@@ -45,7 +55,7 @@ yarn test
 **太字**テスト
 
 export default ({ children }) => (
-  <Layout meta={meta} type="post">
+  <Layout meta={meta} headlines={headlines} type="post">
     {children}
   </Layout>
 )

@@ -17,24 +17,6 @@ type Props = {
   }
 }
 
-const PostItem = ({
-  post: {
-    name,
-    url,
-    meta: { date, description },
-  },
-}: Props) => {
-  return (
-    <Wrapper>
-      <Date>{date}</Date>
-      <Link href={url}>
-        <a>{name}</a>
-      </Link>
-      <Description>{description}</Description>
-    </Wrapper>
-  )
-}
-
 const Wrapper = styled.div`
   margin: 0 0 ${Const.SIZE.MARGIN.XLARGE}px;
   padding: ${Const.SIZE.MARGIN.XLARGE}px;
@@ -55,5 +37,23 @@ const Description = styled.p`
   margin: 0;
   font-size: ${Const.SIZE.FONT.LARGE};
 `
+
+const PostItem: React.FC<Props> = ({
+  post: {
+    name,
+    url,
+    meta: { date, description },
+  },
+}) => {
+  return (
+    <Wrapper>
+      <Date>{date}</Date>
+      <Link href={url}>
+        <a>{name}</a>
+      </Link>
+      <Description>{description}</Description>
+    </Wrapper>
+  )
+}
 
 export default PostItem

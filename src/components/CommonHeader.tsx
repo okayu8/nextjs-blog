@@ -7,44 +7,6 @@ import Const from '~/const'
 
 const { ProfileIcon, PostIcon } = Icons
 
-const CommonHeader = () => {
-  return (
-    <Wrapper>
-      <Inner>
-        <TitleWrapper>
-          <Link href="/">
-            <SiteTitle>OKLog</SiteTitle>
-          </Link>
-        </TitleWrapper>
-        <Ul>
-          <Li>
-            <Link href="/articles">
-              <NavItem>Articles</NavItem>
-            </Link>
-          </Li>
-          <Li>
-            <Link href="/about">
-              <NavItem>About</NavItem>
-            </Link>
-          </Li>
-        </Ul>
-        <SpIcons>
-          <Link href="/articles">
-            <P>
-              <PostIcon />
-            </P>
-          </Link>
-          <Link href="/about">
-            <P>
-              <ProfileIcon />
-            </P>
-          </Link>
-        </SpIcons>
-      </Inner>
-    </Wrapper>
-  )
-}
-
 const Wrapper = styled.header`
   position: fixed;
   top: 0;
@@ -105,5 +67,43 @@ const P = styled.p`
   margin-left: ${Const.SIZE.MARGIN.LARGE}px;
   cursor: pointer;
 `
+
+const CommonHeader: React.FC = () => {
+  return (
+    <Wrapper>
+      <Inner>
+        <TitleWrapper>
+          <Link href="/">
+            <SiteTitle>OKLog</SiteTitle>
+          </Link>
+        </TitleWrapper>
+        <Ul>
+          <Li>
+            <Link href="/articles">
+              <NavItem>Articles</NavItem>
+            </Link>
+          </Li>
+          <Li>
+            <Link href="/about">
+              <NavItem>About</NavItem>
+            </Link>
+          </Li>
+        </Ul>
+        <SpIcons>
+          <Link href="/articles">
+            <P>
+              <PostIcon />
+            </P>
+          </Link>
+          <Link href="/about">
+            <P>
+              <ProfileIcon />
+            </P>
+          </Link>
+        </SpIcons>
+      </Inner>
+    </Wrapper>
+  )
+}
 
 export default CommonHeader
