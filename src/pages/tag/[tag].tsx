@@ -3,7 +3,7 @@ import { GetStaticProps, GetStaticPaths, NextPage } from 'next'
 import { ParsedUrlQuery } from 'querystring'
 
 import Layout from '~/components/Layout'
-import PostList from '~/components/post-list'
+import PostList from '~/components/PostList'
 
 import tagslist from '~/data/tagslist.json'
 
