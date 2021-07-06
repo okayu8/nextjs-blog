@@ -4,6 +4,7 @@ import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
 import CommonHeader from './common-header'
 import CommonFooter from './common-footer'
 import Tag from './tag'
+
 import Const from '~/const'
 
 const theme = {
