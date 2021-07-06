@@ -1,5 +1,5 @@
 import Layout from '~/components/Layout'
-import PostList from '~/components/organisms/post-list'
+import PostList from '~/components/PostList'
 
 const meta = {
   title: 'ARTICLES',

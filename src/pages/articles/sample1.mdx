@@ -1,11 +1,22 @@
-import Layout from '~/components/Layout';
+import Layout from '~/components/layout'
 
 export const meta = {
   title: 'サンプル記事1',
   date: '2020/09/25',
   description: 'テキストテキストテキストテキストテキストテキスト・・・',
   tags: ['test'],
-};
+}
+
+export const headlines = [
+  {
+    title: 'test sample',
+    children: [],
+  },
+  {
+    title: 'サンプル記事',
+    children: [],
+  },
+]
 
 ## test sample
 
@@ -15,4 +26,8 @@ export const meta = {
 - list2
 - list3
 
-export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+export default ({ children }) => (
+  <Layout meta={meta} type="post">
+    {children}
+  </Layout>
+)

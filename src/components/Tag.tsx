@@ -7,14 +7,6 @@ type Props = {
   tag: string
 }
 
-const Tag = ({ tag }: Props) => {
-  return (
-    <a href={`/tag/${tag}`}>
-      <Wrapper>{tag}</Wrapper>
-    </a>
-  )
-}
-
 const Wrapper = styled.div`
   margin: ${Const.SIZE.MARGIN.SMALL}px;
   padding: 4px 8px;
@@ -24,5 +16,13 @@ const Wrapper = styled.div`
   border-radius: 16px;
   cursor: pointer;
 `
+
+const Tag = ({ tag }: Props) => {
+  return (
+    <a href={`/tag/${tag}`}>
+      <Wrapper>{tag}</Wrapper>
+    </a>
+  )
+}
 
 export default Tag
