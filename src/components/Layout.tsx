@@ -1,5 +1,6 @@
 import React from 'react'
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
+import Head from 'next/head'
 
 import CommonHeader from './CommonHeader'
 import CommonFooter from './CommonFooter'
@@ -135,6 +136,11 @@ const Layout: React.FC<Props> = ({ children, meta, headlines, type = 'normal' })
   const tags = meta.tags || []
   return (
     <div>
+      <Head>
+        <title>{meta.title ? `${meta.title} | OK Log` : 'OKLog'}</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="description" content={meta.description} />
+      </Head>
       <GlobalStyle />
       <CommonHeader />
       <Wrapper>
