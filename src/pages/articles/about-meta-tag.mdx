@@ -1,0 +1,129 @@
+import Layout from '~/components/Layout'
+
+export const meta = {
+  title: 'metaタグについて調べてみた',
+  date: '2021/07/15',
+  description:
+    'HEAD タグ内に記載する meta タグについて SEO・UX 観点でちゃんと調べたことがなかく割と思考停止で突っ込んでたので、基本的なところをさらっと勉強してみた。',
+  tags: ['Frontend', 'SEO', 'HTML'],
+}
+
+export const headlines = [
+  {
+    title: 'meta viewport',
+    children: [
+      { title: 'Google の推奨', children: [] },
+      { title: 'どちらも指定しておいた方が良い？', children: [] },
+    ],
+  },
+  {
+    title: 'title',
+    children: [
+      { title: '主要ワードはタイトルの前半にいれるのが良い', children: [] },
+      { title: 'その他設定する際の注意', children: [] },
+    ],
+  },
+  {
+    title: 'meta description',
+    children: [
+      { title: '主要ワードは前半にいれるのが良い', children: [] },
+      { title: 'その他設定する際の注意', children: [] },
+    ],
+  },
+  {
+    title: 'meta keyword',
+    children: [],
+  },
+]
+
+HEAD タグ内に記載する meta タグについて SEO・UX 観点でちゃんと調べたことがなかく割と思考停止で突っ込んでたので、基本的なところをさらっと勉強してみた。
+
+## meta viewport
+
+viewport に関してブラウザへ指示を出す meta タグ
+`width=380`と設定した場合、ブラウザに幅 380px の仮想ウィンドウが作られる。
+これを viewport と呼ぶ。
+ブラウザは viewport にレンダリングする。
+
+viewport を指定していない場合、
+例えばモバイル端末などの小さい端末でサイトを開くと、端末の横幅に合わせてサイトが小さく表示されるため閲覧しづらい表示になってしまう。
+
+### Google の推奨
+
+https://web.dev/responsive-web-design-basics/#set-the-viewport
+
+```js live=true
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+```
+
+- ”`width=device-width` を使用すると、デバイスに依存せず画面幅に一致させることができる”と記載がある。つまりピクセル数の膨大な端末でも実際の解像度でなく端末やブラウザの画面幅に合わせたスケールになるということ。
+- `initial-scale=1`を使用すると、デバイスの向きに関わらず CSS ピクセルとデバイスに依存しないピクセルの間に 1:1 の関係を確立できる
+
+### どちらも指定しておいた方が良い？
+
+`width=device-width`を指定した場合、暗黙的に`initial-scale=1`が指定される。
+また`initial-scale=1`を指定した場合も暗黙的に`width=device-width`が指定される。
+しかし Windows Phone の IE では`initial-scale`に対応していなかったりするので、どちらも指定しておいた方が無難。
+
+## title
+
+検索結果やタブのタイトル部分に表示される重要なタグ。
+SEO を考慮する場合、指定必須である。
+
+### 主要ワードはタイトルの前半にいれるのが良い
+
+タイトルは長すぎると・・・で省略表示される。
+表示される文字数は Google 側で定期的に変更されるため明確な基準はないが、現在では PC 表示の場合は全角 26 文字・半角 52 文字 程度で切られてしまうため多少調整されても主要ワードは入るように設定した方が良さげ。
+
+### その他設定する際の注意
+
+- 全ページに title タグを記載する・・・title タグが設定されていないページがある場合
+- キーワードを入れすぎない・・・同じキーワードを繰り返しても評価されない。
+- ページごとに異なる title を設定する・・・同じ titie が設定されたページが複数ある場合。同じタイトルを使用すると両方のページともに評価が低下する場合がある。
+
+また Google の検索結果で表示される場合は基本的に title タグが使用されるが、キーワードによっては Google が自動的に最適化して表示する場合がある。
+変えてもらいたい時は上記の注意点を守ると改善される。
+
+## meta description
+
+### 概要
+
+検索結果のスニペットに表示される。
+Google によると、ランキング要因には影響しないと明言されている。
+
+https://developers.google.com/search/blog/2007/09/improve-snippets-with-meta-description
+
+ただユーザー目線で考えた際に、関心をひくワードがあったらクリックする事もあるはずなので、検索結果からのクリック率（CTR）には影響がある。
+またページ内容をあらかじめユーザーに伝えることで、訪問者の理解度が上昇する。（サイト離脱率の低下につながる）
+
+### 主要ワードは前半にいれるのが良い
+
+Google によると文字数制限はないとされているが、title 同様一定の文字数以上で省略されてしまう。
+
+- 現在は PC の場合、全角 111 文字・半角 222 文字
+- SP の場合、全角 64 文字・半角 128 文字
+  title は PC の方が表示文字数が少ないが、description は逆。
+  こちらも title 同様 Google が定期的に変更することがある。
+
+### 設定する際の注意
+
+- 複数ページで重複しない・・・同じ description を使用すると、両ページともに評価が低下する場合がある
+- ページと関係のない内容は入れない・・・ユーザーが混乱するため
+- キーワードのみの羅列は避ける・・・Google も避けるように言っている（https://developers.google.com/search/docs/beginner/seo-starter-guide）
+
+## meta keyword
+
+Google によると悪用が頻発したため無視し始めたとのこと。
+
+https://developers.google.com/search/blog/2009/09/google-does-not-use-keywords-meta-tag
+
+今後利用される可能性がないとは言えないが、何年も無視されてきたため方針を変更することはなさそう。
+設定不要の模様。
+
+export default ({ children }) => (
+  <Layout meta={meta} headlines={headlines} type="post">
+    {children}
+  </Layout>
+)

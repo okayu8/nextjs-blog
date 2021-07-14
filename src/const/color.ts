@@ -5,6 +5,7 @@ export default {
     PANEL: '#FEFEFE',
     TAG: '#AAAAAA',
     PRE: '#EEE',
+    CODE: '#DDD',
   },
   FONT: {
     BASE: '#333333',

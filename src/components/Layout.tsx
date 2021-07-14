@@ -51,6 +51,7 @@ const Date = styled.p`
 
 const TagsWrapper = styled.div`
   display: flex;
+  margin-bottom: ${Const.SIZE.MARGIN.XXLARGE}px;
 `
 
 const Container = styled.div`
@@ -114,12 +115,20 @@ const GlobalStyle = createGlobalStyle`
   }
 
   pre {
-    font-size: 14px;
+    font-size: 0.8em;
   }
 
   code {
     font-family: Consolas, Monaco, monospace;
     border-radius: 4px;
+  }
+
+  p {
+    code {
+      padding: 2px;
+      font-size: 0.8em;
+      background: ${Const.COLOR.BACKGROUND.CODE};
+    }
   }
 
   h1, h2, h3, h4, h5 {
@@ -129,6 +138,19 @@ const GlobalStyle = createGlobalStyle`
       margin-top: -6rem;
       content: "";
     }
+  }
+
+  h1 {
+    font-size: 2.2em;
+  }
+
+  h2 {
+    font-size: 2em;
+    margin-top: 80px;
+  }
+
+  h3 {
+    margin-top: 50px;
   }
 `
 
