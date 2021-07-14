@@ -12,8 +12,14 @@ export type HeadLineType = {
   children: HeadLineType[]
 }
 
+const Title = styled.div`
+  font-size: 1.5em;
+  color: ${Const.COLOR.FONT.DATE};
+`
+
 const OuterUl = styled.ul`
-  padding: 8px 12px;
+  padding: 0px 12px 8px 12px;
+  margin-top: 8px;
   list-style: none;
   font-size: ${Const.SIZE.FONT.LARGE};
 `
@@ -49,6 +55,7 @@ const Toc: React.FC<Props> = ({ headlines }) => {
   )
   return (
     <div>
+      <Title>CONTENTS</Title>
       <OuterUl>{headlines?.map((headline: HeadLineType) => renderHeadline(headline))}</OuterUl>
     </div>
   )

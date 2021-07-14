@@ -1,5 +1,6 @@
 import React from 'react'
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
+import Head from 'next/head'
 
 import CommonHeader from './CommonHeader'
 import CommonFooter from './CommonFooter'
@@ -50,6 +51,7 @@ const Date = styled.p`
 
 const TagsWrapper = styled.div`
   display: flex;
+  margin-bottom: ${Const.SIZE.MARGIN.XXLARGE}px;
 `
 
 const Container = styled.div`
@@ -113,12 +115,20 @@ const GlobalStyle = createGlobalStyle`
   }
 
   pre {
-    font-size: 14px;
+    font-size: 0.8em;
   }
 
   code {
     font-family: Consolas, Monaco, monospace;
     border-radius: 4px;
+  }
+
+  p {
+    code {
+      padding: 2px;
+      font-size: 0.8em;
+      background: ${Const.COLOR.BACKGROUND.CODE};
+    }
   }
 
   h1, h2, h3, h4, h5 {
@@ -129,12 +139,30 @@ const GlobalStyle = createGlobalStyle`
       content: "";
     }
   }
+
+  h1 {
+    font-size: 2.2em;
+  }
+
+  h2 {
+    font-size: 2em;
+    margin-top: 80px;
+  }
+
+  h3 {
+    margin-top: 50px;
+  }
 `
 
 const Layout: React.FC<Props> = ({ children, meta, headlines, type = 'normal' }) => {
   const tags = meta.tags || []
   return (
     <div>
+      <Head>
+        <title>{meta.title ? `${meta.title} | OK Log` : 'OKLog'}</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="description" content={meta.description} />
+      </Head>
       <GlobalStyle />
       <CommonHeader />
       <Wrapper>

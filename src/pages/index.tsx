@@ -6,7 +6,7 @@ import Layout from '~/components/Layout'
 const meta = {
   title: '',
   date: '',
-  description: '',
+  description: 'フロントエンドよりのWebエンジニアです。ブログ書いてます。',
 }
 
 const Page: NextPage = () => {
