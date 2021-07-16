@@ -131,14 +131,17 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
-  h1 {
-    font-size: 2.2em;
+  h1, h2, h3, h4, h5 {
     &::before {
       display: block;
       height: 6rem;
       margin-top: -6rem;
       content: "";
     }
+  }
+
+  h1 {
+    font-size: 2.2em;
   }
 
   h2 {
