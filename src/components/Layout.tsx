@@ -64,16 +64,16 @@ const MainContent = styled.main<{ type?: 'normal' | 'post' }>(
   ({ type }) => `
     width: ${Const.SIZE.WIDTH.CONTENT}px;
     margin: 0 auto;
-    ${
-      type !== 'normal' &&
-      `
+    ${type !== 'normal' &&
+    `
         margin: 0 0 0 340px ;
-        width: 100%;
+        width: calc(100% - 340px);
       `
     }
 
     @media screen and (max-width: 768px) {
       margin: 0 auto;
+      width: 100%;
     }
   `,
 )
@@ -124,6 +124,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   p {
+    word-break: break-all;
+    white-space: pre-wrap;
     code {
       padding: 2px;
       font-size: 0.8em;
