@@ -80,9 +80,11 @@ const MainContent = styled.main<{ type?: 'normal' | 'post' }>(
 const SideBar = styled.div`
   position: fixed;
   width: ${Const.SIZE.WIDTH.TABLE_OF_CONTENT}px;
-  background: ${Const.COLOR.BACKGROUND.PANEL};
+  background: ${Const.COLOR.BACKGROUND.BASE};
   padding: ${Const.SIZE.MARGIN.LARGE}px;
   border-radius: 4px;
+  box-shadow: var(--shadow);
+  --shadow: 4px 4px 8px rgba(0, 0, 0, 0.1), -4px -4px 8px rgba(255, 255, 255, 0.9);
 
   @media screen and (max-width: 768px) {
     display: none;
