@@ -20,16 +20,19 @@ const Title = styled.div`
 const OuterUl = styled.ul`
   padding: 0px 12px 8px 12px;
   margin-top: 8px;
+  list-style: none;
   font-size: ${Const.SIZE.FONT.LARGE};
 `
 
 const InnerUl = styled.ul`
   padding-left: 24px;
+  list-style: none;
   font-size: ${Const.SIZE.FONT.LARGE};
 `
 
 const Li = styled.li`
   padding: 4px 0;
+  list-style: none;
   &:hover {
     background: ${Const.COLOR.BACKGROUND.BASE};
   }

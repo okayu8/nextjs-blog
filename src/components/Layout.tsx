@@ -161,10 +161,6 @@ const GlobalStyle = createGlobalStyle`
   h3 {
     margin-top: 50px;
   }
-
-  li {
-    list-style: none;
-  }
 `
 
 const Layout: React.FC<Props> = ({ children, meta, headlines, type = 'normal' }) => {
