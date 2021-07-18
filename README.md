@@ -16,19 +16,19 @@ next.js + TypeScript で構築したブログ。
 依存関係
 
 ```依存関係
-npm install
+yarn
 ```
 
 ローカルで動かす
 
 ```ローカルで動かす
-npm run dev
+yarn dev
 ```
 
 ビルド
 
 ```ビルド
-npm run build
+yarn build
 ```
 
 ## 記事投稿
@@ -37,4 +37,5 @@ npm run build
 - meta に {title, date, description, tagas[]} を含める
 
 ## デプロイ
+
 - vercelと連携されているため、masterブランチの更新時にデプロイされる
