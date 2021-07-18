@@ -105,7 +105,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    margin: ${Const.SIZE.HEIGHT.HEADER}px 0 0 0;
+    margin: ${Const.SIZE.MARGIN.XXXLARGE}px 0 0 0;
     padding: 0;
     background-color: ${Const.COLOR.BACKGROUND.BASE};
   }

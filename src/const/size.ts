@@ -19,5 +19,6 @@ export default {
     LARGE: '16',
     XLARGE: '24',
     XXLARGE: '40',
+    XXXLARGE: '84',
   },
 } as const
