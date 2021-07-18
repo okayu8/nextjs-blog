@@ -20,13 +20,11 @@ const Title = styled.div`
 const OuterUl = styled.ul`
   padding: 0px 12px 8px 12px;
   margin-top: 8px;
-  list-style: none;
   font-size: ${Const.SIZE.FONT.LARGE};
 `
 
 const InnerUl = styled.ul`
   padding-left: 24px;
-  list-style: none;
   font-size: ${Const.SIZE.FONT.LARGE};
 `
 
@@ -37,6 +35,10 @@ const Li = styled.li`
   }
 `
 
+const TocLink = styled.a`
+  display: block;
+`
+
 const parseTitleToLinkId = (s: string) => {
   const parsed = s.toLowerCase().replace(/\s/g, '-').replace('.', '')
   return `#${parsed}`
@@ -45,9 +47,9 @@ const parseTitleToLinkId = (s: string) => {
 const Toc: React.FC<Props> = ({ headlines }) => {
   const renderHeadline = (headline: HeadLineType) => (
     <Fragment key={headline.title}>
-      <a href={parseTitleToLinkId(headline.title)}>
-        <Li>{headline.title}</Li>
-      </a>
+      <Li>
+        <TocLink href={parseTitleToLinkId(headline.title)}>{headline.title}</TocLink>
+      </Li>
       {(headline.children || []).length > 0 ? (
         <InnerUl>{(headline.children || []).map((child) => renderHeadline(child))}</InnerUl>
       ) : null}

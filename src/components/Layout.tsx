@@ -144,15 +144,24 @@ const GlobalStyle = createGlobalStyle`
 
   h1 {
     font-size: 2.2em;
+    text-decoration: underline;
+    text-underline-position: under;
+    text-decoration-color: ${Const.COLOR.BORDER.H1};
+    text-decoration-thickness: 6px;
   }
 
   h2 {
     font-size: 2em;
     margin-top: 80px;
+    text-decoration: underline;
   }
 
   h3 {
     margin-top: 50px;
+  }
+
+  li {
+    list-style: none;
   }
 `
 

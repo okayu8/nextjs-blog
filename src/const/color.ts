@@ -14,5 +14,9 @@ export default {
     PAGE_TITLE: '#666666',
     DATE: '#999999',
     NAV_ITEM: '#EEFFFF',
+    WHITE: '#FFF',
+  },
+  BORDER: {
+    H1: '#AAAAAA',
   },
 } as const
