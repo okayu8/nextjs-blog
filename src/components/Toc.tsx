@@ -33,8 +33,9 @@ const InnerUl = styled.ul`
 const Li = styled.li`
   padding: 4px 0;
   list-style: none;
+  border-radius: 4px;
   &:hover {
-    background: ${Const.COLOR.BACKGROUND.BASE};
+    background: ${Const.COLOR.BACKGROUND.BASE_HOVER};
   }
 `
 

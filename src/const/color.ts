@@ -1,9 +1,11 @@
 export default {
   BACKGROUND: {
     BASE: '#F5F5F5',
+    BASE_HOVER: '#EBEBEB',
     HEADER: '#555',
     PANEL: '#FEFEFE',
     TAG: '#AAAAAA',
+    TAG_HOEVER: '#8F8F8F',
     PRE: '#EEE',
     CODE: '#DDD',
   },

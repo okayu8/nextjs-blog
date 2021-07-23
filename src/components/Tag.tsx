@@ -13,10 +13,15 @@ const Wrapper = styled.div`
   font-size: ${Const.SIZE.FONT.SMALL}px;
   font-weight: 700;
   color: ${Const.COLOR.FONT.WHITE};
-  background-color: ${Const.COLOR.BACKGROUND.TAG};
+  background: ${Const.COLOR.BACKGROUND.TAG};
   border-radius: 16px;
   cursor: pointer;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  transition: all 0.1s;
+
+  &:hover {
+    background: ${Const.COLOR.BACKGROUND.TAG_HOEVER};
+  }
 `
 
 const Tag = ({ tag }: Props) => {

@@ -24,6 +24,7 @@ const Wrapper = styled.div`
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 8px;
   cursor: pointer;
+  transition: all 0.1s;
 
   > a {
     font-size: ${Const.SIZE.FONT.SITE_TITLE}px;
