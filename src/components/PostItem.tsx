@@ -20,11 +20,20 @@ type Props = {
 const Wrapper = styled.div`
   margin: 0 0 ${Const.SIZE.MARGIN.XLARGE}px;
   padding: ${Const.SIZE.MARGIN.XLARGE}px;
-  background-color: ${Const.COLOR.BACKGROUND.PANEL};
+  background: ${Const.COLOR.BACKGROUND.PANEL};
+  border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.1s;
 
   > a {
     font-size: ${Const.SIZE.FONT.SITE_TITLE}px;
+    color: ${Const.COLOR.FONT.LINK};
+  }
+
+  &:hover {
+    border-color: transparent;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
   }
 `
 
@@ -46,13 +55,15 @@ const PostItem: React.FC<Props> = ({
   },
 }) => {
   return (
-    <Wrapper>
-      <Date>{date}</Date>
+    <>
       <Link href={url}>
-        <a>{name}</a>
+        <Wrapper>
+          <Date>{date}</Date>
+          <a>{name}</a>
+          <Description>{description}</Description>
+        </Wrapper>
       </Link>
-      <Description>{description}</Description>
-    </Wrapper>
+    </>
   )
 }
 
