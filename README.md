@@ -3,7 +3,7 @@
 next.js + TypeScript で構築したブログ。
 記事は mdx で書ける。
 
-ブログサイト: <https://atomic-style-dev.vercel.app/>
+ブログサイト: <https://ok-log.net/>
 
 ## ライブラリ
 
