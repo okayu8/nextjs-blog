@@ -64,8 +64,9 @@ const MainContent = styled.main<{ type?: 'normal' | 'post' }>(
   ({ type }) => `
     width: ${Const.SIZE.WIDTH.CONTENT}px;
     margin: 0 auto;
-    ${type !== 'normal' &&
-    `
+    ${
+      type !== 'normal' &&
+      `
         margin: 0 0 0 340px ;
         width: calc(100% - 340px);
       `
@@ -153,9 +154,13 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h2 {
-    font-size: 2em;
+    font-size: 1.8em;
     margin-top: 80px;
-    text-decoration: underline;
+    padding: 0.2em 0.3em;
+    background: ${Const.COLOR.BACKGROUND.H2};
+    border-radius: 4px;
+    border-left: solid 5px ${Const.COLOR.BORDER.H2};
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
   }
 
   h3 {

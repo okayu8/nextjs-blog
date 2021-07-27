@@ -22,7 +22,7 @@ const P = styled.p`
 const CommonFooter: React.FC = () => {
   return (
     <Wrapper>
-      <CopyRight>© 2020 atomicstyle.work</CopyRight>
+      <CopyRight>© 2020 ok-log.net</CopyRight>
       <P>
         <Link href="/about">
           <a>サイトについて</a>
