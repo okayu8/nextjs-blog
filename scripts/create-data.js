@@ -104,7 +104,7 @@ const getTagsList = (data) => {
 
   // TODO: 作成時に整形したい
   sitemap({
-    baseUrl: '',
+    baseUrl: 'https://ok-log.net/articles',
     pagesDirectory: path.join(process.cwd(), 'src/pages/articles'),
     ignoredPaths: ['index'],
     targetDirectory: 'public/',
