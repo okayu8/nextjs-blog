@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Link from 'next/link'
 
@@ -7,12 +7,14 @@ import Const from '~/const'
 
 const { ProfileIcon, PostIcon } = Icons
 
-const Wrapper = styled.header`
+const Wrapper = styled.header<{ isScrollTop: boolean }>`
   position: fixed;
   top: 0;
   width: 100%;
   height: ${Const.SIZE.HEIGHT.HEADER}px;
-  background-color: ${Const.COLOR.BACKGROUND.HEADER};
+  transition: all 0.2s;
+  background-color: ${(props) =>
+    props.isScrollTop ? Const.COLOR.BACKGROUND.HEADER : Const.COLOR.BACKGROUND.HEADER_SCROLL};
   box-shadow: 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%),
     0px 2px 4px -1px rgb(0 0 0 / 20%);
 `
@@ -71,8 +73,22 @@ const P = styled.p`
 `
 
 const CommonHeader: React.FC = () => {
+  const [isScrollTop, setIsScrollTop] = useState(true)
+  const ScrollEvent = () => {
+    if (window.scrollY === 0) {
+      return setIsScrollTop(true)
+    } else {
+      return setIsScrollTop(false)
+    }
+  }
+  useEffect(() => {
+    window.addEventListener('scroll', ScrollEvent)
+    return () => {
+      window.removeEventListener('scroll', ScrollEvent)
+    }
+  }, [])
   return (
-    <Wrapper>
+    <Wrapper isScrollTop={isScrollTop}>
       <Inner>
         <TitleWrapper>
           <Link href="/">

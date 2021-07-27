@@ -13,7 +13,7 @@ const Page: NextPage = () => {
   // getPosts();
   return (
     <Layout meta={meta}>
-      <p>AtomicStyle.work</p>
+      <p>ok-log.net</p>
     </Layout>
   )
 }
