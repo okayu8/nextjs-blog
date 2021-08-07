@@ -29,6 +29,7 @@ export default class MyDocument extends Document<Props> {
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/styles/base16/harmonic16-dark.min.css"
           />
+          <link rel="icon" href="/favicon.ico" />
           {this.props.styleTags}
         </Head>
         <body>

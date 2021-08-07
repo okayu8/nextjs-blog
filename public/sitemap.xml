@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 
-      http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-	xmlns:xhtml="http://www.w3.org/1999/xhtml">
-
+      <urlset xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 
+      http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+      xmlns:xhtml="http://www.w3.org/1999/xhtml">
+      
 	<url>
 		<loc>https://ok-log.net/articles/about-meta-tag</loc>
-		<lastmod>2021-07-28</lastmod>
+		<lastmod>2021-08-08</lastmod>
 	</url>
 
 	<url>
 		<loc>https://ok-log.net/articles/mdx-test</loc>
-		<lastmod>2021-07-28</lastmod>
+		<lastmod>2021-08-08</lastmod>
 	</url>
 
 	<url>
 		<loc>https://ok-log.net/articles/new-img-fromat</loc>
-		<lastmod>2021-07-28</lastmod>
+		<lastmod>2021-08-08</lastmod>
 	</url>
 
 	<url>
 		<loc>https://ok-log.net/articles/sample1</loc>
-		<lastmod>2021-07-28</lastmod>
+		<lastmod>2021-08-08</lastmod>
 	</url>
 
 	<url>
 		<loc>https://ok-log.net/articles/syntax-highlight</loc>
-		<lastmod>2021-07-28</lastmod>
+		<lastmod>2021-08-08</lastmod>
 	</url>
 </urlset>
