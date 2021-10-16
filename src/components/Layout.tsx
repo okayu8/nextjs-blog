@@ -21,7 +21,6 @@ const theme = {
 } as const
 
 type Props = {
-  children?: React.ReactNode
   meta: {
     title?: string
     date: string
