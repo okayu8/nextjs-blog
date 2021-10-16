@@ -3,7 +3,6 @@ import PostList from '~/components/PostList'
 
 const meta = {
   title: 'ARTICLES',
-  date: '',
   description: '記事一覧',
 }
 

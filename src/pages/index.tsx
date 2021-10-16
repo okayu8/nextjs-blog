@@ -5,7 +5,6 @@ import Layout from '~/components/Layout'
 
 const meta = {
   title: '',
-  date: '',
   description: 'フロントエンドよりのWebエンジニアです。ブログ書いてます。',
 }
 
