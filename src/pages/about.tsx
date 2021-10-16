@@ -3,7 +3,8 @@ import styled from 'styled-components'
 
 const meta = {
   title: 'ABOUT',
-  date: '2020/09/06',
+  createdDate: '2020/09/06',
+  updatedDate: '2020/09/06',
   description: 'ブログについて',
 }
 

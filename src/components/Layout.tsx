@@ -23,7 +23,8 @@ const theme = {
 type Props = {
   meta: {
     title?: string
-    date: string
+    createdDate?: string
+    updatedDate?: string
     description: string
     tags?: string[] | []
   }
@@ -42,9 +43,19 @@ const H1 = styled.h1`
   margin: 0;
 `
 
-const Date = styled.p`
+const DateWrapper = styled.div`
   color: ${Const.COLOR.FONT.DATE};
+  display: flex;
+  justify-content: end;
+`
+
+const DateTitle = styled.p`
+  margin: 0 16px;
+`
+
+const Date = styled.p`
   margin: 0;
+  width: 100px;
   text-align: right;
 `
 
@@ -188,7 +199,18 @@ const Layout: React.FC<Props> = ({ children, meta, headlines, type = 'normal' })
         <Container>
           <MainContent type={type}>
             <H1>{meta.title}</H1>
-            <Date>{meta.date}</Date>
+            {meta.createdDate && (
+              <DateWrapper>
+                <DateTitle>作成日</DateTitle>
+                <Date>{meta.createdDate}</Date>
+              </DateWrapper>
+            )}
+            {meta.updatedDate && (
+              <DateWrapper>
+                <DateTitle>更新日</DateTitle>
+                <Date>{meta.updatedDate}</Date>
+              </DateWrapper>
+            )}
             {tags && (
               <TagsWrapper>
                 {tags.map((item: string, index: any) => {
