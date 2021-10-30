@@ -1,7 +1,9 @@
 import SIZE from './size'
-import COLOR from './color'
+import LIGHT_THEME from './light-theme-color'
+import DARK_THEME from './dark-theme-color'
 
 export default {
   SIZE,
-  COLOR,
+  LIGHT_THEME,
+  DARK_THEME,
 }
