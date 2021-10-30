@@ -9,17 +9,6 @@ import Toc, { HeadLineType } from './Toc'
 
 import Const from '~/const'
 
-const theme = {
-  colors: {
-    font_blue: '#00b7ce',
-    header_gray: '#555',
-    green: '#0f0',
-  },
-  layout: {
-    width: 960,
-  },
-} as const
-
 type Props = {
   meta: {
     title?: string
@@ -32,19 +21,21 @@ type Props = {
   type?: 'normal' | 'post'
 }
 
+type ThemeType = typeof Const
+
 const Wrapper = styled.div`
   margin: 0 auto;
-  padding: ${Const.SIZE.MARGIN.XLARGE}px;
-  max-width: ${Const.SIZE.WIDTH.WIDE_CONTENT}px;
+  padding: ${(props) => props.theme.SIZE.MARGIN.XLARGE}px;
+  max-width: ${(props) => props.theme.SIZE.WIDTH.WIDE_CONTENT}px;
 `
 
 const H1 = styled.h1`
-  color: ${Const.COLOR.FONT.PAGE_TITLE};
+  color: ${(props) => props.theme.COLOR.FONT.PAGE_TITLE};
   margin: 0;
 `
 
 const DateWrapper = styled.div`
-  color: ${Const.COLOR.FONT.DATE};
+  color: ${(props) => props.theme.COLOR.FONT.DATE};
   display: flex;
   justify-content: end;
 `
@@ -61,7 +52,7 @@ const Date = styled.p`
 
 const TagsWrapper = styled.div`
   display: flex;
-  margin-bottom: ${Const.SIZE.MARGIN.XXLARGE}px;
+  margin-bottom: ${(props) => props.theme.SIZE.MARGIN.XXLARGE}px;
 `
 
 const Container = styled.div`
@@ -71,8 +62,8 @@ const Container = styled.div`
 `
 
 const MainContent = styled.main<{ type?: 'normal' | 'post' }>(
-  ({ type }) => `
-    width: ${Const.SIZE.WIDTH.CONTENT}px;
+  ({ type, theme }) => `
+    width: ${theme.SIZE.WIDTH.CONTENT}px;
     margin: 0 auto;
     ${
       type !== 'normal' &&
@@ -91,9 +82,9 @@ const MainContent = styled.main<{ type?: 'normal' | 'post' }>(
 
 const SideBar = styled.div`
   position: fixed;
-  width: ${Const.SIZE.WIDTH.TABLE_OF_CONTENT}px;
-  background: ${Const.COLOR.BACKGROUND.BASE};
-  padding: ${Const.SIZE.MARGIN.LARGE}px;
+  width: ${(props) => props.theme.SIZE.WIDTH.TABLE_OF_CONTENT}px;
+  background: ${(props) => props.theme.COLOR.BACKGROUND.BASE};
+  padding: ${(props) => props.theme.SIZE.MARGIN.LARGE}px;
   border-radius: 4px;
   box-shadow: var(--shadow);
   --shadow: 4px 4px 8px rgba(0, 0, 0, 0.1), -4px -4px 8px rgba(255, 255, 255, 0.9);
@@ -103,27 +94,27 @@ const SideBar = styled.div`
   }
 `
 
-const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
   html {
     font-family: "-apple-system","BlinkMacSystemFont","Helvetica Neue","Segoe UI","Hiragino Kaku Gothic ProN","Hiragino Sans","ヒラギノ角ゴ ProN W3","Arial","メイリオ","Meiryo","sans-serif";
     line-height: 1.75;
     font-weight: 400;
-    font-size: ${Const.SIZE.FONT.BASE}px;
+    font-size: ${(props) => props.theme.SIZE.FONT.BASE}px;
     -webkit-letter-spacing: .03em;
     -moz-letter-spacing: .03em;
     -ms-letter-spacing: .03em;
     letter-spacing: .03em;
-    color: ${Const.COLOR.FONT.BASE};
+    color: ${(props) => props.theme.COLOR.FONT.BASE};
   }
 
   body {
-    margin: ${Const.SIZE.MARGIN.XXXLARGE}px 0 0 0;
+    margin: ${(props) => props.theme.SIZE.MARGIN.XXXLARGE}px 0 0 0;
     padding: 0;
-    background-color: ${Const.COLOR.BACKGROUND.BASE};
+    background-color: ${(props) => props.theme.COLOR.BACKGROUND.BASE};
   }
 
   a {
-    color: ${Const.COLOR.FONT.LINK};
+    color: ${(props) => props.theme.COLOR.FONT.LINK};
     text-decoration: none;
   }
 
@@ -142,7 +133,7 @@ const GlobalStyle = createGlobalStyle`
     code {
       padding: 2px;
       font-size: 0.8em;
-      background: ${Const.COLOR.BACKGROUND.CODE};
+      background: ${(props) => props.theme.COLOR.BACKGROUND.CODE};
     }
   }
 
@@ -157,9 +148,8 @@ const GlobalStyle = createGlobalStyle`
 
   h1 {
     font-size: 2.2em;
-    text-decoration: underline;
     text-underline-position: under;
-    text-decoration-color: ${Const.COLOR.BORDER.H1};
+    text-decoration-color: ${(props) => props.theme.COLOR.BORDER.H1};
     text-decoration-thickness: 6px;
   }
 
@@ -167,9 +157,9 @@ const GlobalStyle = createGlobalStyle`
     font-size: 1.8em;
     margin-top: 80px;
     padding: 0.2em 0.3em;
-    background: ${Const.COLOR.BACKGROUND.H2};
+    background: ${(props) => props.theme.COLOR.BACKGROUND.H2};
     border-radius: 4px;
-    border-left: solid 5px ${Const.COLOR.BORDER.H2};
+    border-left: solid 5px ${(props) => props.theme.COLOR.BORDER.H2};
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
   }
 
@@ -181,7 +171,7 @@ const GlobalStyle = createGlobalStyle`
 const Layout: React.FC<Props> = ({ children, meta, headlines, type = 'normal' }) => {
   const tags = meta.tags || []
   return (
-    <div>
+    <ThemeProvider theme={Const}>
       <Head>
         <title>{meta.title ? `${meta.title} | OK Log` : 'OKLog'}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -218,12 +208,12 @@ const Layout: React.FC<Props> = ({ children, meta, headlines, type = 'normal' })
                 })}
               </TagsWrapper>
             )}
-            <ThemeProvider theme={theme}>{children}</ThemeProvider>
+            {children}
           </MainContent>
         </Container>
         <CommonFooter />
       </Wrapper>
-    </div>
+    </ThemeProvider>
   )
 }
 

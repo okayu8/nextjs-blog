@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import Link from 'next/link'
 
 import Icons from '~/components/icons'
-import Const from '~/const'
 
 const { ProfileIcon, PostIcon } = Icons
 
@@ -11,18 +10,20 @@ const Wrapper = styled.header<{ isScrollTop: boolean }>`
   position: fixed;
   top: 0;
   width: 100%;
-  height: ${Const.SIZE.HEIGHT.HEADER}px;
+  height: ${(props) => props.theme.SIZE.HEIGHT.HEADER}px;
   transition: all 0.2s;
   background-color: ${(props) =>
-    props.isScrollTop ? Const.COLOR.BACKGROUND.HEADER : Const.COLOR.BACKGROUND.HEADER_SCROLL};
+    props.isScrollTop
+      ? (props) => props.theme.COLOR.BACKGROUND.HEADER
+      : props.theme.COLOR.BACKGROUND.HEADER_SCROLL};
   box-shadow: 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%),
     0px 2px 4px -1px rgb(0 0 0 / 20%);
 `
 
 const Inner = styled.div`
   margin: 0 auto;
-  padding: 0 ${Const.SIZE.MARGIN.XLARGE}px;
-  max-width: ${Const.SIZE.WIDTH.WIDE_CONTENT}px;
+  padding: 0 ${(props) => props.theme.SIZE.MARGIN.XLARGE}px;
+  max-width: ${(props) => props.theme.SIZE.WIDTH.WIDE_CONTENT}px;
   height: 100%;
   display: flex;
   justify-content: space-between;
@@ -35,7 +36,7 @@ const TitleWrapper = styled.div`
 
 const SiteTitle = styled.a`
   margin: auto;
-  color: ${Const.COLOR.FONT.SITE_TITLE};
+  color: ${(props) => props.theme.COLOR.FONT.SITE_TITLE};
   font-size: 1.6em;
   text-decoration: none;
   cursor: pointer;
@@ -52,10 +53,10 @@ const Li = styled.li`
 `
 
 const NavItem = styled.a`
-  color: ${Const.COLOR.FONT.NAV_ITEM};
+  color: ${(props) => props.theme.COLOR.FONT.NAV_ITEM};
   text-decoration: none;
   display: inline-block;
-  margin-left: ${Const.SIZE.MARGIN.LARGE}px;
+  margin-left: ${(props) => props.theme.SIZE.MARGIN.LARGE}px;
   cursor: pointer;
 `
 
@@ -68,7 +69,7 @@ const SpIcons = styled.div`
 `
 
 const P = styled.p`
-  margin-left: ${Const.SIZE.MARGIN.LARGE}px;
+  margin-left: ${(props) => props.theme.SIZE.MARGIN.LARGE}px;
   cursor: pointer;
 `
 

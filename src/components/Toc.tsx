@@ -1,8 +1,6 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
 
-import Const from '~/const'
-
 type Props = {
   headlines?: HeadLineType[]
 }
@@ -14,20 +12,20 @@ export type HeadLineType = {
 
 const Title = styled.div`
   font-size: 1.5em;
-  color: ${Const.COLOR.FONT.DATE};
+  color: ${(props) => props.theme.COLOR.FONT.DATE};
 `
 
 const OuterUl = styled.ul`
   padding: 0px 12px 8px 12px;
   margin-top: 8px;
   list-style: none;
-  font-size: ${Const.SIZE.FONT.LARGE};
+  font-size: ${(props) => props.theme.SIZE.FONT.LARGE};
 `
 
 const InnerUl = styled.ul`
   padding-left: 24px;
   list-style: none;
-  font-size: ${Const.SIZE.FONT.LARGE};
+  font-size: ${(props) => props.theme.SIZE.FONT.LARGE};
 `
 
 const Li = styled.li`
@@ -35,7 +33,7 @@ const Li = styled.li`
   list-style: none;
   border-radius: 4px;
   &:hover {
-    background: ${Const.COLOR.BACKGROUND.BASE_HOVER};
+    background: ${(props) => props.theme.COLOR.BACKGROUND.BASE_HOVER};
   }
 `
 

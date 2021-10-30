@@ -2,11 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import Link from 'next/link'
 
-import Const from '~/const'
-
 const Wrapper = styled.div`
   width: 100%;
-  margin-top: ${Const.SIZE.MARGIN.XXLARGE}px;
+  margin-top: ${(props) => props.theme.SIZE.MARGIN.XXLARGE}px;
   display: flex;
   justify-content: space-between;
 `

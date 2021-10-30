@@ -3,7 +3,6 @@ import styled from 'styled-components'
 
 import PostItem from './PostItem'
 import metadata from '~/data/metadata.json'
-import Const from '~/const'
 
 type Props = {
   tagName?: string
@@ -16,7 +15,7 @@ const allPosts = (data: any) => {
 }
 
 const Wrapper = styled.div`
-  margin-top: ${Const.SIZE.MARGIN.XLARGE}px;
+  margin-top: ${(props) => props.theme.SIZE.MARGIN.XLARGE}px;
 `
 
 const PostList: React.FC<Props> = ({ tagName }) => {
