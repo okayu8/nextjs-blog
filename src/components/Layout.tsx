@@ -21,7 +21,10 @@ type Props = {
   type?: 'normal' | 'post'
 }
 
-type ThemeType = typeof Const
+type ThemeType = {
+  COLOR: typeof Const.LIGHT_THEME | typeof Const.DARK_THEME
+  SIZE: typeof Const.SIZE
+}
 
 const Wrapper = styled.div`
   margin: 0 auto;
@@ -171,7 +174,8 @@ const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
 const Layout: React.FC<Props> = ({ children, meta, headlines, type = 'normal' }) => {
   const tags = meta.tags || []
   return (
-    <ThemeProvider theme={Const}>
+    // TODO: LIGHT_THEME と DARK_THEME を切り替えられるようにする
+    <ThemeProvider theme={{ SIZE: Const.SIZE, COLOR: Const.LIGHT_THEME }}>
       <Head>
         <title>{meta.title ? `${meta.title} | OK Log` : 'OKLog'}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
