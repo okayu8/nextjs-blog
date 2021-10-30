@@ -2,8 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import Link from 'next/link'
 
-import Const from '~/const'
-
 type Props = {
   post: {
     name: string
@@ -18,17 +16,17 @@ type Props = {
 }
 
 const Wrapper = styled.div`
-  margin: 0 0 ${Const.SIZE.MARGIN.XLARGE}px;
-  padding: ${Const.SIZE.MARGIN.XLARGE}px;
-  background: ${Const.COLOR.BACKGROUND.PANEL};
+  margin: 0 0 ${(props) => props.theme.SIZE.MARGIN.XLARGE}px;
+  padding: ${(props) => props.theme.SIZE.MARGIN.XLARGE}px;
+  background: ${(props) => props.theme.COLOR.BACKGROUND.PANEL};
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.1s;
 
   > a {
-    font-size: ${Const.SIZE.FONT.SITE_TITLE}px;
-    color: ${Const.COLOR.FONT.LINK};
+    font-size: ${(props) => props.theme.SIZE.FONT.SITE_TITLE}px;
+    color: ${(props) => props.theme.COLOR.FONT.LINK};
   }
 
   &:hover {
@@ -39,12 +37,12 @@ const Wrapper = styled.div`
 
 const Date = styled.p`
   margin: 0;
-  color: ${Const.COLOR.FONT.DATE};
+  color: ${(props) => props.theme.COLOR.FONT.DATE};
 `
 
 const Description = styled.p`
   margin: 0;
-  font-size: ${Const.SIZE.FONT.LARGE};
+  font-size: ${(props) => props.theme.SIZE.FONT.LARGE};
 `
 
 const PostItem: React.FC<Props> = ({
