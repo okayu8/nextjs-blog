@@ -33,7 +33,7 @@ const sortArticles = (data) => {
   const articles = (data.find((item) => item.name === 'articles') || {}).children || []
   const sorted = articles
     .map((post) => {
-      console.log(new Date(post.meta.date))
+      console.log(new Date(post.meta.createdDate))
       if (!post.meta) {
         console.error(`[missing metadata]: ${post.url}`)
         return post
@@ -43,20 +43,20 @@ const sortArticles = (data) => {
         console.error(`[metadata]: missing key "title" in (${post.name}) ${post.url}`)
         console.error('> Please make sure that each post has a [title].')
       }
-      if (!post.meta.date) {
-        console.error(`[metadata]: missing key "date" in (${post.name}) ${post.url}`)
-        console.error('> Try to run "new Date().toUTCString()" in console to get "date".')
-        const meta = { ...post.meta, date: new Date().toUTCString() }
+      if (!post.meta.createdDate) {
+        console.error(`[metadata]: missing key "createdDate" in (${post.name}) ${post.url}`)
+        console.error('> Try to run "new Date().toUTCString()" in console to get "createdDate".')
+        const meta = { ...post.meta, createdDate: new Date().toUTCString() }
         return { ...post, meta }
       }
 
-      if (`${new Date(post.meta.date)}` === 'Invalid Date') {
-        console.error(`[metadata]: format error "date" in (${post.name}) ${post.url}`)
-        console.error('> Try to run "new Date().toUTCString()" in console to get "date".')
+      if (`${new Date(post.meta.createdDate)}` === 'Invalid Date') {
+        console.error(`[metadata]: format error "createdDate" in (${post.name}) ${post.url}`)
+        console.error('> Try to run "new Date().toUTCString()" in console to get "createdDate".')
       }
       return post
     })
-    .sort((pre, next) => +new Date(next.meta.date) - new Date(pre.meta.date))
+    .sort((pre, next) => +new Date(next.meta.createdDate) - new Date(pre.meta.createdDate))
 
   return data.map((v) => {
     if (v.name !== 'articles') return v

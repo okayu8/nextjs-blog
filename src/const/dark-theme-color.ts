@@ -9,7 +9,6 @@ export default {
     TAG_HOEVER: '#AAAAAA',
     PRE: '#EEE',
     CODE: '#DDD',
-    H2: '#EBEBEB',
   },
   FONT: {
     BASE: '#333333',
