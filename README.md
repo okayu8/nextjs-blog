@@ -34,7 +34,14 @@ yarn build
 ## 記事投稿
 
 - /src/pages/articles 配下に mdx ファイルを作成
+`yarn create-post`
 - meta に {title, date, description, tagas[]} を含める
+
+## scaffdog によるファイルの雛形自動生成
+
+- 記事ページ `yarn create-post`
+- Page `yarn create-page`
+- Component `yarn create-component`
 
 ## デプロイ
 
