@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npm run create && next dev",
-    "build": "npm run create-data && next build",
-    "start": "npm run create-data && next start",
+    "dev": "yarn create-data && next dev",
+    "build": "yarn create-data && next build",
+    "start": "yarn create-data && next start",
     "create-data": "node scripts/create-data.js",
     "create-post": "npx scaffdog generate post",
     "create-page": "npx scaffdog generate page",
@@ -43,7 +43,6 @@
     "fs-extra": "^9.0.1",
     "nextjs-sitemap-generator": "^1.1.1",
     "prettier": "^2.1.1",
-    "remark-autolink-headings": "^6.0.1",
     "remark-slug": "^6.0.0",
     "scaffdog": "^1.0.1",
     "typescript": "^4.0.2"

@@ -55,7 +55,8 @@ const Date = styled.p`
 
 const TagsWrapper = styled.div`
   display: flex;
-  margin-bottom: ${(props) => props.theme.SIZE.MARGIN.XXLARGE}px;
+  margin: ${(props) => props.theme.SIZE.MARGIN.LARGE}px 0
+    ${(props) => props.theme.SIZE.MARGIN.XXLARGE}px 0;
 `
 
 const Container = styled.div`
@@ -140,7 +141,12 @@ const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
     }
   }
 
-  h1, h2, h3, h4, h5 {
+  ul, li {
+    word-break: break-all;
+    white-space: pre-wrap;
+  }
+
+  h2, h3, h4, h5 {
     &::before {
       display: block;
       height: 6rem;
@@ -158,16 +164,12 @@ const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
 
   h2 {
     font-size: 1.8em;
-    margin-top: 80px;
-    padding: 0.2em 0.3em;
-    background: ${(props) => props.theme.COLOR.BACKGROUND.H2};
-    border-radius: 4px;
-    border-left: solid 5px ${(props) => props.theme.COLOR.BORDER.H2};
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+    margin-top: 60px;
+    border-bottom: solid 4px ${(props) => props.theme.COLOR.BORDER.H2};
   }
 
   h3 {
-    margin-top: 50px;
+    margin-top: 40px;
   }
 `
 

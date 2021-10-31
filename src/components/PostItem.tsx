@@ -8,7 +8,7 @@ type Props = {
     url: string
     meta: {
       title: string
-      date: string
+      createdDate: string
       description: string
       tags: string[] | []
     }
@@ -49,14 +49,14 @@ const PostItem: React.FC<Props> = ({
   post: {
     name,
     url,
-    meta: { date, description },
+    meta: { createdDate, description },
   },
 }) => {
   return (
     <>
       <Link href={url}>
         <Wrapper>
-          <Date>{date}</Date>
+          <Date>{createdDate}</Date>
           <a>{name}</a>
           <Description>{description}</Description>
         </Wrapper>

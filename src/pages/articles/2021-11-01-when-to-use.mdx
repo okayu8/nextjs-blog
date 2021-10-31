@@ -1,0 +1,99 @@
+import Layout from '~/components/Layout'
+
+export const meta = {
+  title: 'useCallback / useMemo はどこから適用すべきなのか',
+  createdDate: '2021/11/01',
+  updatedDate: '2021/11/01',
+  description:
+    'React HooksのuseCallback/useMemoはいつ使うべきなのか。全部囲う場合とコストが高い対象だけを囲う場合のメリットをそれぞれ整理して、どういった運用をすべきかについて考えてみた。',
+  tags: ['React', 'javaScript', 'Frontend'],
+}
+
+export const headlines = [
+  {
+    title: '全部囲う場合のメリット',
+    children: [],
+  },
+  {
+    title: 'コストが高い対象だけを囲う場合のメリット',
+    children: [],
+  },
+  {
+    title: 'その他の判断要素',
+    children: [],
+  },
+  {
+    title: '結論',
+    children: [],
+  },
+]
+
+<!-- 記事の内容 -->
+
+React Hooks の useCallback/useMemo はいつ使うべきなのか。
+現場やネットでは「全て囲ってしまえ」という意見と「大きくコストがかかる場合だけ囲うべき」という意見で分かれている。
+
+今回は全部囲う場合とコストが高い対象だけを囲う場合のメリットをそれぞれ整理して、どういった運用をすべきかについて考えてみた。
+
+## 全部囲う場合のメリット
+
+### 後で追加するのは大変
+
+重くなってきたので後から追加となると、デグレが怖いし手間もかかる。
+
+### FW の思想と合っている。
+
+React の思想としてはデータの扱いはイミュータブルである事が前提となっている。
+
+### どこからメモ化するべきか、迷うコストを削減出来る。
+
+実装時に囲うべきか悩んだり、レビュー時に議論が発生してしまうのは無駄なコストである。
+
+## コストが高い対象だけを囲う場合のメリット
+
+### パフォーマンス向上
+
+useCallback, useMemo によるコストの方が関数を作成するコストよりも大きくなる場合が多いため、何から何まで囲っていると多くの場合オーバーヘッドとなってしまう。
+
+### 可読性の向上
+
+useCallback/useMemo で囲う分コードが冗長になり、可読性が下がる。
+
+### バグの発生率を下げられる
+
+実装時に deps の設定等のミスする可能性がある箇所を増やすことになる。
+ただ公式推奨の ESlint の exhaustive-deps などを使えばミスは軽減できる
+
+## その他の判断要素
+
+useCallback/useMemo の使用がパフォーマンスに対して実際に悪影響となったというデータは見つけられない、特に話も聞かない。
+
+## 結論
+
+プロダクトが巨大、もしくは今後大きくなっていく事が考えられる場合は全てメモ化するのはアリかも。
+理由としては以下が大きい。
+
+- useCallback/useMemo の使用によりパフォーマンスへの悪影響が確認されたという情報が見つからない。
+- どのコンポーネントを囲うべきかを悩んだり、レビュー時に議論が発生するのはコストになってしまうため。
+- 重くなってきてから後で追加するのは大変。
+  <br />
+  <br />
+
+とはいえ useCallback/useMemo 使用のコストが発生するのは各 Hooks のコードを読めば明らかである。
+選別する場合は以下のルール程度で行うのが良さそう。
+
+- カスタムフックが返す関数は必ず useCallback で囲う
+- Memo 化された子コンポーネントに渡す関数の場合は必ず useCallback で囲う
+- 「明らかに簡単な計算」でない場合は useMemo で囲う
+
+## 参照
+
+- https://zenn.dev/yoshiko/articles/32371c83e68cbe
+- https://qiita.com/seya/items/8291f53576097fc1c52a
+- https://blog.uhy.ooo/entry/2021-02-23/usecallback-custom-hooks/
+
+export default ({ children }) => (
+  <Layout meta={meta} headlines={headlines} type="post">
+    {children}
+  </Layout>
+)
