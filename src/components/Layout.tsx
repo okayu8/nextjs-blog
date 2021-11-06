@@ -206,19 +206,19 @@ const Layout: React.FC<Props> = ({ children, meta, headlines, type = 'normal' })
         <Container>
           <MainContent type={type}>
             <H1>{meta.title}</H1>
-            {meta.createdDate && (
+            {type === 'post' && meta.createdDate && (
               <DateWrapper>
                 <DateTitle>作成日</DateTitle>
                 <Date>{meta.createdDate}</Date>
               </DateWrapper>
             )}
-            {meta.updatedDate && (
+            {type === 'post' && meta.updatedDate && (
               <DateWrapper>
                 <DateTitle>更新日</DateTitle>
                 <Date>{meta.updatedDate}</Date>
               </DateWrapper>
             )}
-            {tags && (
+            {type === 'post' && tags && (
               <TagsWrapper>
                 {tags.map((item: string, index: any) => {
                   return <Tag key={index} tag={item} />
