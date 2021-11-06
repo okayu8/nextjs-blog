@@ -26,6 +26,17 @@ type ThemeType = {
   SIZE: typeof Const.SIZE
 }
 
+const theme = {
+  light: {
+    COLOR: Const.LIGHT_THEME,
+    SIZE: Const.SIZE,
+  },
+  dark: {
+    COLOR: Const.DARK_THEME,
+    SIZE: Const.SIZE,
+  },
+} as const
+
 const Wrapper = styled.div`
   margin: 0 auto;
   padding: ${(props) => props.theme.SIZE.MARGIN.XLARGE}px;
@@ -177,7 +188,7 @@ const Layout: React.FC<Props> = ({ children, meta, headlines, type = 'normal' })
   const tags = meta.tags || []
   return (
     // TODO: LIGHT_THEME と DARK_THEME を切り替えられるようにする
-    <ThemeProvider theme={{ SIZE: Const.SIZE, COLOR: Const.LIGHT_THEME }}>
+    <ThemeProvider theme={theme['light']}>
       <Head>
         <title>{meta.title ? `${meta.title} | OK Log` : 'OKLog'}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
