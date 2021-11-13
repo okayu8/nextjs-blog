@@ -24,7 +24,7 @@ const Wrapper = styled.div`
 
 const Tag = ({ tag }: Props) => {
   return (
-    <a href={`/tag/${tag}`}>
+    <a href={`/tag/${tag}`} role="button">
       <Wrapper>{tag}</Wrapper>
     </a>
   )
