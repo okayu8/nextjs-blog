@@ -13,10 +13,11 @@ export default {
   },
   FONT: {
     BASE: '#333333',
-    LINK: '#008BBB',
+    LINK: '#016694',
     SITE_TITLE: '#EEFFFF',
     PAGE_TITLE: '#666666',
-    DATE: '#999999',
+    DATE: '#5c5c5c',
+    TOP_DATE: '#DEDEDE',
     NAV_ITEM: '#EEFFFF',
     WHITE: '#FFF',
   },

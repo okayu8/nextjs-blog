@@ -12,6 +12,7 @@ type Props = {
       description: string
       tags: string[] | []
       imgPath?: string
+      bgImgPath?: string
     }
   }
 }
@@ -40,27 +41,22 @@ const Wrapper = styled.div<{ imgPath: string }>`
 `
 
 const ContentWrapper = styled.div`
-  background: rgba(0, 0, 0, 0.4);
-  width: 100%;
-  height: 100px;
-  padding: ${(props) => props.theme.SIZE.MARGIN.XLARGE}px;
-`
-
-const Img = styled.img`
-  object-fit: cover;
+  background: rgba(0, 0, 0, 0.6);
   width: 100%;
   height: 150px;
+  padding: ${(props) => props.theme.SIZE.MARGIN.XLARGE}px;
 `
 
 const Date = styled.p`
   margin: 0;
-  color: ${(props) => props.theme.COLOR.FONT.DATE};
+  color: ${(props) => props.theme.COLOR.FONT.TOP_DATE};
 `
 
 const Title = styled.p`
   margin: 0;
-  font-size: ${(props) => props.theme.SIZE.FONT.BASE}px;
+  font-size: ${(props) => props.theme.SIZE.FONT.XXLARGE}px;
   color: ${(props) => props.theme.COLOR.FONT.WHITE};
+  word-break: break-word;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
@@ -77,7 +73,7 @@ const PostItem: React.FC<Props> = ({
   return (
     <>
       <Link href={url}>
-        <Wrapper imgPath={imgPath}>
+        <Wrapper imgPath={imgPath} role="link">
           <ContentWrapper>
             <Date>{createdDate}</Date>
             <Title>{name}</Title>

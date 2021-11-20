@@ -17,6 +17,7 @@ type Props = {
     description: string
     tags?: string[] | []
     imgPath?: string
+    bgImgPath?: string
   }
   headlines?: HeadLineType[]
   type?: 'normal' | 'post' | 'top'
@@ -42,6 +43,23 @@ const Wrapper = styled.div`
   margin: 0 auto;
   padding: ${(props) => props.theme.SIZE.MARGIN.XLARGE}px;
   max-width: ${(props) => props.theme.SIZE.WIDTH.WIDE_CONTENT}px;
+`
+
+const BackgroundImg = styled.div<{ imgPath?: string }>`
+  position: fixed;
+  top: -110px;
+  left: -24px;
+  width: calc(100% + 48px);
+  height: 400px;
+  z-index: -1;
+  ${(props) =>
+    props.imgPath &&
+    `
+    background: linear-gradient(to bottom,rgba(255, 255, 255, 0.6) 20%,${props.theme.COLOR.BACKGROUND.BASE} 100%),
+      url(${props.imgPath});
+    background-repeat: no-repeat;
+    background-size: cover;
+  `};
 `
 
 const H1 = styled.h1`
@@ -81,6 +99,7 @@ const MainContent = styled.main<{ type?: 'normal' | 'post' | 'top' }>(
   ({ type, theme }) => `
     width: ${theme.SIZE.WIDTH.CONTENT}px;
     margin: 0 auto;
+    // position: relative;
     ${
       type === 'top'
         ? `
@@ -112,7 +131,7 @@ const SideBar = styled.div`
   padding: ${(props) => props.theme.SIZE.MARGIN.LARGE}px;
   border-radius: 4px;
   box-shadow: var(--shadow);
-  --shadow: 4px 4px 8px rgba(0, 0, 0, 0.1), -4px -4px 8px rgba(255, 255, 255, 0.9);
+  --shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
 
   @media screen and (max-width: 768px) {
     display: none;
@@ -206,6 +225,7 @@ const Layout: React.FC<Props> = ({ children, meta, headlines, type = 'normal' })
       </Head>
       <GlobalStyle />
       <CommonHeader />
+      <BackgroundImg imgPath={meta.bgImgPath} />
       <Wrapper>
         {/* 規模が大きくなったらテンプレート分ける */}
         {type === 'post' && (

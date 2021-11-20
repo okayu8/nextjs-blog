@@ -12,6 +12,7 @@ type Props = {
       description: string
       tags: string[] | []
       imgPath?: string
+      bgImgPath?: string
     }
   }
 }
@@ -25,11 +26,6 @@ const Wrapper = styled.div`
   cursor: pointer;
   transition: all 0.1s;
 
-  > a {
-    font-size: ${(props) => props.theme.SIZE.FONT.SITE_TITLE}px;
-    color: ${(props) => props.theme.COLOR.FONT.LINK};
-  }
-
   &:hover {
     border-color: transparent;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
@@ -39,6 +35,12 @@ const Wrapper = styled.div`
 const Date = styled.p`
   margin: 0;
   color: ${(props) => props.theme.COLOR.FONT.DATE};
+`
+
+const Title = styled.p`
+  font-size: ${(props) => props.theme.SIZE.FONT.SITE_TITLE}px;
+  color: ${(props) => props.theme.COLOR.FONT.LINK};
+  margin: 0;
 `
 
 const Description = styled.p`
@@ -56,9 +58,9 @@ const PostItem: React.FC<Props> = ({
   return (
     <>
       <Link href={url}>
-        <Wrapper>
+        <Wrapper role="link">
           <Date>{createdDate}</Date>
-          <a>{name}</a>
+          <Title>{name}</Title>
           <Description>{description}</Description>
         </Wrapper>
       </Link>
