@@ -11,6 +11,7 @@ type Props = {
       createdDate: string
       description: string
       tags: string[] | []
+      imgPath?: string
     }
   }
 }
