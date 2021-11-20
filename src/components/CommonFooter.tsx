@@ -41,7 +41,7 @@ const CommonFooter: React.FC = () => {
         </P>
       </Wrapper>
       <IconWrapper>
-        <Icon src="/img/rayout_icon.svg" />
+        <Icon src="/img/rayout_icon.svg" alt="Rayout" />
       </IconWrapper>
     </>
   )

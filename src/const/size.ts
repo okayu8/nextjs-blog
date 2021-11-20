@@ -3,6 +3,8 @@ export default {
     SMALL: '12',
     BASE: '16',
     LARGE: '18',
+    XLARGE: '22',
+    XXLARGE: '24',
     SITE_TITLE: '24',
   },
   WIDTH: {

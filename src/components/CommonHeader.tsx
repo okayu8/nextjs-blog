@@ -34,12 +34,10 @@ const TitleWrapper = styled.div`
   display: flex;
 `
 
-const SiteTitle = styled.a`
+const SiteLogo = styled.img`
   margin: auto;
-  color: ${(props) => props.theme.COLOR.FONT.SITE_TITLE};
-  font-size: 1.6em;
-  text-decoration: none;
   cursor: pointer;
+  width: 100px;
 `
 
 const Ul = styled.ul`
@@ -93,7 +91,7 @@ const CommonHeader: React.FC = () => {
       <Inner>
         <TitleWrapper>
           <Link href="/">
-            <SiteTitle>OKLog</SiteTitle>
+            <SiteLogo src="/img/OKLog_light.svg" alt="OKLog" />
           </Link>
         </TitleWrapper>
         <Ul>
