@@ -16,9 +16,10 @@ type Props = {
     updatedDate?: string
     description: string
     tags?: string[] | []
+    imgPath?: string
   }
   headlines?: HeadLineType[]
-  type?: 'normal' | 'post'
+  type?: 'normal' | 'post' | 'top'
 }
 
 type ThemeType = {
@@ -76,17 +77,26 @@ const Container = styled.div`
   align-items: flex-start;
 `
 
-const MainContent = styled.main<{ type?: 'normal' | 'post' }>(
+const MainContent = styled.main<{ type?: 'normal' | 'post' | 'top' }>(
   ({ type, theme }) => `
     width: ${theme.SIZE.WIDTH.CONTENT}px;
     margin: 0 auto;
     ${
-      type !== 'normal' &&
+      type === 'top'
+        ? `
+        width: 100%;
       `
-        margin: 0 0 0 340px ;
+        : ''
+    }
+    ${
+      type === 'post'
+        ? `
+        margin: 0 0 0 340px;
         width: calc(100% - 340px);
       `
-    }
+        : ''
+    };
+    
 
     @media screen and (max-width: 768px) {
       margin: 0 auto;
