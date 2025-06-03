@@ -46,7 +46,7 @@ export default class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
+          <script async src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
         </body>
       </Html>
     )

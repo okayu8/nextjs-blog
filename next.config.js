@@ -1,12 +1,9 @@
 const path = require('path')
-const rehypeHighlight = require('rehype-highlight')
-const remarkSlug = require('remark-slug')
 
 const withMDX = require('@next/mdx')({
   extension: /\.(md|mdx)?$/,
   options: {
-    rehypePlugins: [rehypeHighlight],
-    remarkPlugins: [remarkSlug],
+    providerImportSource: '@mdx-js/react',
   },
 })
 
@@ -22,6 +19,8 @@ const nextConfig = {
     return config
   },
   pageExtensions: ['tsx', 'mdx'],
+  output: 'export',
+  trailingSlash: true,
 }
 
 module.exports = withMDX(nextConfig)

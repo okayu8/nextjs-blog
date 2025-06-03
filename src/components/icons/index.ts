@@ -1,7 +1,9 @@
 import ProfileIcon from './ProfileIcon'
 import PostIcon from './PostIcon'
 
-export default {
+const Icons = {
   ProfileIcon,
   PostIcon,
 }
+
+export default Icons
