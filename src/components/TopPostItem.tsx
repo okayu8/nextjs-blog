@@ -19,7 +19,7 @@ type Props = {
 
 const DEFAULT_IMG_PATH = '/img/articles/article_default.jpeg'
 
-const Wrapper = styled.div<{ imgPath: string }>`
+const Wrapper = styled.div<{ $imgPath: string }>`
   width: 270px;
   height: 300px;
   background: ${(props) => props.theme.COLOR.BACKGROUND.PANEL};
@@ -31,7 +31,7 @@ const Wrapper = styled.div<{ imgPath: string }>`
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  background: no-repeat url(${(props) => props.imgPath});
+  background: no-repeat url(${(props) => props.$imgPath});
   background-size: auto 100%;
   &:hover {
     opacity: 0.6;
@@ -73,7 +73,7 @@ const PostItem: React.FC<Props> = ({
   return (
     <>
       <Link href={url}>
-        <Wrapper imgPath={imgPath} role="link">
+        <Wrapper $imgPath={imgPath} role="link">
           <ContentWrapper>
             <Date>{createdDate}</Date>
             <Title>{name}</Title>
