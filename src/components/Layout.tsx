@@ -10,6 +10,7 @@ import Toc, { HeadLineType } from './Toc'
 import Const from '~/const'
 
 type Props = {
+  children: React.ReactNode
   meta: {
     title?: string
     createdDate?: string
@@ -21,11 +22,6 @@ type Props = {
   }
   headlines?: HeadLineType[]
   type?: 'normal' | 'post' | 'top'
-}
-
-type ThemeType = {
-  COLOR: typeof Const.LIGHT_THEME | typeof Const.DARK_THEME
-  SIZE: typeof Const.SIZE
 }
 
 const theme = {
@@ -45,7 +41,7 @@ const Wrapper = styled.div`
   max-width: ${(props) => props.theme.SIZE.WIDTH.WIDE_CONTENT}px;
 `
 
-const BackgroundImg = styled.div<{ imgPath?: string }>`
+const BackgroundImg = styled.div<{ $imgPath?: string }>`
   position: fixed;
   top: -110px;
   left: -24px;
@@ -53,10 +49,10 @@ const BackgroundImg = styled.div<{ imgPath?: string }>`
   height: 400px;
   z-index: -1;
   ${(props) =>
-    props.imgPath &&
+    props.$imgPath &&
     `
     background: linear-gradient(to bottom,rgba(255, 255, 255, 0.6) 20%,${props.theme.COLOR.BACKGROUND.BASE} 100%),
-      url(${props.imgPath});
+      url(${props.$imgPath});
     background-repeat: no-repeat;
     background-size: cover;
   `};
@@ -138,7 +134,7 @@ const SideBar = styled.div`
   }
 `
 
-const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
+const GlobalStyle = createGlobalStyle`
   html {
     font-family: "-apple-system","BlinkMacSystemFont","Helvetica Neue","Segoe UI","Hiragino Kaku Gothic ProN","Hiragino Sans","ヒラギノ角ゴ ProN W3","Arial","メイリオ","Meiryo","sans-serif";
     line-height: 1.75;
@@ -225,7 +221,7 @@ const Layout: React.FC<Props> = ({ children, meta, headlines, type = 'normal' })
       </Head>
       <GlobalStyle />
       <CommonHeader />
-      <BackgroundImg imgPath={meta.bgImgPath} />
+      <BackgroundImg $imgPath={meta.bgImgPath} />
       <Wrapper>
         {/* 規模が大きくなったらテンプレート分ける */}
         {type === 'post' && (

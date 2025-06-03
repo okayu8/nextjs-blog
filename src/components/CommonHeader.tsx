@@ -6,17 +6,19 @@ import Icons from '~/components/icons'
 
 const { ProfileIcon, PostIcon } = Icons
 
-const Wrapper = styled.header<{ isScrollTop: boolean }>`
+const Wrapper = styled.header<{ $isScrollTop: boolean }>`
   position: fixed;
   top: 0;
   width: 100%;
   height: ${(props) => props.theme.SIZE.HEIGHT.HEADER}px;
   transition: all 0.2s;
   background-color: ${(props) =>
-    props.isScrollTop
+    props.$isScrollTop
       ? (props) => props.theme.COLOR.BACKGROUND.HEADER
       : props.theme.COLOR.BACKGROUND.HEADER_SCROLL};
-  box-shadow: 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%),
+  box-shadow:
+    0px 4px 5px 0px rgb(0 0 0 / 14%),
+    0px 1px 10px 0px rgb(0 0 0 / 12%),
     0px 2px 4px -1px rgb(0 0 0 / 20%);
 `
 
@@ -50,7 +52,7 @@ const Li = styled.li`
   display: inline-box;
 `
 
-const NavItem = styled.a`
+const NavItem = styled.div`
   color: ${(props) => props.theme.COLOR.FONT.NAV_ITEM};
   text-decoration: none;
   display: inline-block;
@@ -87,7 +89,7 @@ const CommonHeader: React.FC = () => {
     }
   }, [])
   return (
-    <Wrapper isScrollTop={isScrollTop}>
+    <Wrapper $isScrollTop={isScrollTop}>
       <Inner>
         <TitleWrapper>
           <Link href="/">

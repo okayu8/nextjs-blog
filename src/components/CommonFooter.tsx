@@ -35,9 +35,7 @@ const CommonFooter: React.FC = () => {
       <Wrapper>
         <CopyRight>© 2020 ok-log.net</CopyRight>
         <P>
-          <Link href="/about">
-            <a>サイトについて</a>
-          </Link>
+          <Link href="/about">サイトについて</Link>
         </P>
       </Wrapper>
       <IconWrapper>
