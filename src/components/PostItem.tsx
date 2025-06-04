@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import Link from 'next/link'
 
 type Props = {
@@ -17,37 +16,6 @@ type Props = {
   }
 }
 
-const Wrapper = styled.div`
-  margin: 0 0 ${(props) => props.theme.SIZE.MARGIN.XLARGE}px;
-  padding: ${(props) => props.theme.SIZE.MARGIN.XLARGE}px;
-  background: ${(props) => props.theme.COLOR.BACKGROUND.PANEL};
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.1s;
-
-  &:hover {
-    border-color: transparent;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
-  }
-`
-
-const Date = styled.p`
-  margin: 0;
-  color: ${(props) => props.theme.COLOR.FONT.DATE};
-`
-
-const Title = styled.p`
-  font-size: ${(props) => props.theme.SIZE.FONT.SITE_TITLE}px;
-  color: ${(props) => props.theme.COLOR.FONT.LINK};
-  margin: 0;
-`
-
-const Description = styled.p`
-  margin: 0;
-  font-size: ${(props) => props.theme.SIZE.FONT.LARGE};
-`
-
 const PostItem: React.FC<Props> = ({
   post: {
     name,
@@ -58,11 +26,14 @@ const PostItem: React.FC<Props> = ({
   return (
     <>
       <Link href={url}>
-        <Wrapper role="link">
-          <Date>{createdDate}</Date>
-          <Title>{name}</Title>
-          <Description>{description}</Description>
-        </Wrapper>
+        <div 
+          role="link"
+          className="mb-24 p-24 bg-bg-panel border border-black/[0.12] rounded-lg cursor-pointer transition-all duration-100 hover:border-transparent hover:shadow-[0_10px_20px_rgba(0,0,0,0.12)]"
+        >
+          <p className="m-0 text-font-date">{createdDate}</p>
+          <p className="text-24 text-font-link m-0">{name}</p>
+          <p className="m-0 text-18">{description}</p>
+        </div>
       </Link>
     </>
   )

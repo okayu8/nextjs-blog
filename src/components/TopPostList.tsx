@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 
 import TopPostItem from './TopPostItem'
 import metadata from '~/data/metadata.json'
@@ -14,30 +13,11 @@ const allPosts = (data: any) => {
   return posts
 }
 
-const Wrapper = styled.div`
-  width: 100%;
-  max-width: 1116px;
-  margin 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-
-  @media screen and (max-width: 1163px) {
-    max-width: 846px;
-  } 
-  @media screen and (max-width: 881px) {
-    max-width: 552px;
-  }
-  @media screen and (max-width: 599px) {
-    max-width: 270px;
-  }
-`
-
 const PostList: React.FC<Props> = ({ tagName }) => {
   const posts = allPosts(metadata)
   const slisedPosts = posts.slice(0, 8)
   return (
-    <Wrapper>
+    <div className="w-full max-w-[270px] sm:max-w-[552px] lg:max-w-[846px] xl:max-w-1120 mx-auto flex flex-wrap gap-[12px]">
       {slisedPosts.map((item: any, index: any) => {
         if (!tagName) {
           return <TopPostItem key={index} post={item} />
@@ -45,7 +25,7 @@ const PostList: React.FC<Props> = ({ tagName }) => {
           return item.meta.tags.includes(tagName) && <TopPostItem key={index} post={item} />
         }
       })}
-    </Wrapper>
+    </div>
   )
 }
 

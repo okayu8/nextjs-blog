@@ -1,5 +1,4 @@
 import Layout from '~/components/Layout'
-import styled from 'styled-components'
 
 const meta = {
   title: 'ABOUT',
@@ -8,46 +7,24 @@ const meta = {
   description: 'ブログについて',
 }
 
-const Profile = styled.div`
-  display: flex;
-`
-
-const Icon = styled.img`
-  width: 80px;
-  height: 80px;
-  border-radius: 100px;
-`
-
-const Content = styled.div`
-  padding: 24px;
-  box-shadow: var(--shadow);
-  --shadow: 4px 4px 8px rgba(0, 0, 0, 0.1), -4px -4px 8px rgba(255, 255, 255, 0.9);
-`
-
-const Title = styled.h3`
-  margin: 24px 0 16px;
-`
-
-const Name = styled.p`
-  font-size: 24px;
-  font-weight: 700;
-  margin: auto 24px;
-`
-
 const About = () => {
   return (
     <Layout meta={meta}>
       <p>フロント寄りエンジニアのメモ帳。気が向いた時に更新します。</p>
       <h2>Profile</h2>
-      <Title>Name</Title>
-      <Content>
-        <Profile>
-          <Icon src="/img/okayu_profile.jpeg" />
-          <Name>okayu8</Name>
-        </Profile>
-      </Content>
-      <Title>Contact</Title>
-      <Content>
+      <h3 className="mt-24 mb-16 mx-0">Name</h3>
+      <div className="p-24 shadow-[4px_4px_8px_rgba(0,0,0,0.1),-4px_-4px_8px_rgba(255,255,255,0.9)]">
+        <div className="flex">
+          <img 
+            src="/img/okayu_profile.jpeg" 
+            alt="okayu8 profile"
+            className="w-[80px] h-[80px] rounded-[100px]"
+          />
+          <p className="text-24 font-bold my-auto mx-24">okayu8</p>
+        </div>
+      </div>
+      <h3 className="mt-24 mb-16 mx-0">Contact</h3>
+      <div className="p-24 shadow-[4px_4px_8px_rgba(0,0,0,0.1),-4px_-4px_8px_rgba(255,255,255,0.9)]">
         <ul>
           <li>
             Github:{' '}
@@ -60,7 +37,7 @@ const About = () => {
             <a href="mailto:kataoka-yutaro@atomicstyle.work">kataoka-yutaro@atomicstyle.work</a>
           </li>
         </ul>
-      </Content>
+      </div>
     </Layout>
   )
 }

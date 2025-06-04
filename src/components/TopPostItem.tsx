@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import Link from 'next/link'
 
 type Props = {
@@ -19,50 +18,6 @@ type Props = {
 
 const DEFAULT_IMG_PATH = '/img/articles/article_default.jpeg'
 
-const Wrapper = styled.div<{ $imgPath: string }>`
-  width: 270px;
-  height: 300px;
-  background: ${(props) => props.theme.COLOR.BACKGROUND.PANEL};
-  box-sizing: border-box;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.1s;
-  overflow: hidden;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  background: no-repeat url(${(props) => props.$imgPath});
-  background-size: auto 100%;
-  &:hover {
-    opacity: 0.6;
-    border-color: transparent;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  }
-`
-
-const ContentWrapper = styled.div`
-  background: rgba(0, 0, 0, 0.6);
-  width: 100%;
-  height: 150px;
-  padding: ${(props) => props.theme.SIZE.MARGIN.XLARGE}px;
-`
-
-const Date = styled.p`
-  margin: 0;
-  color: ${(props) => props.theme.COLOR.FONT.TOP_DATE};
-`
-
-const Title = styled.p`
-  margin: 0;
-  font-size: ${(props) => props.theme.SIZE.FONT.XXLARGE}px;
-  color: ${(props) => props.theme.COLOR.FONT.WHITE};
-  word-break: break-word;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  overflow: hidden;
-`
-
 const PostItem: React.FC<Props> = ({
   post: {
     name,
@@ -73,12 +28,19 @@ const PostItem: React.FC<Props> = ({
   return (
     <>
       <Link href={url}>
-        <Wrapper $imgPath={imgPath} role="link">
-          <ContentWrapper>
-            <Date>{createdDate}</Date>
-            <Title>{name}</Title>
-          </ContentWrapper>
-        </Wrapper>
+        <div 
+          role="link"
+          className="w-[270px] h-[300px] bg-bg-panel box-border rounded-lg cursor-pointer transition-all duration-100 overflow-hidden flex flex-row items-end bg-no-repeat bg-auto hover:opacity-60 hover:border-transparent hover:shadow-[0_10px_20px_rgba(0,0,0,0.3)]"
+          style={{
+            backgroundImage: `url(${imgPath})`,
+            backgroundSize: 'auto 100%'
+          }}
+        >
+          <div className="bg-black/60 w-full h-[150px] p-24">
+            <p className="m-0 text-font-topDate">{createdDate}</p>
+            <p className="m-0 text-24 text-font-white break-words line-clamp-3">{name}</p>
+          </div>
+        </div>
       </Link>
     </>
   )
