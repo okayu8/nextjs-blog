@@ -1,80 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import styled from 'styled-components'
 import Link from 'next/link'
 
 import Icons from '~/components/icons'
 
 const { ProfileIcon, PostIcon } = Icons
 
-const Wrapper = styled.header<{ $isScrollTop: boolean }>`
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: ${(props) => props.theme.SIZE.HEIGHT.HEADER}px;
-  transition: all 0.2s;
-  background-color: ${(props) =>
-    props.$isScrollTop
-      ? (props) => props.theme.COLOR.BACKGROUND.HEADER
-      : props.theme.COLOR.BACKGROUND.HEADER_SCROLL};
-  box-shadow:
-    0px 4px 5px 0px rgb(0 0 0 / 14%),
-    0px 1px 10px 0px rgb(0 0 0 / 12%),
-    0px 2px 4px -1px rgb(0 0 0 / 20%);
-`
-
-const Inner = styled.div`
-  margin: 0 auto;
-  padding: 0 ${(props) => props.theme.SIZE.MARGIN.XLARGE}px;
-  max-width: ${(props) => props.theme.SIZE.WIDTH.WIDE_CONTENT}px;
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
-`
-
-const TitleWrapper = styled.div`
-  height: 100%;
-  display: flex;
-`
-
-const SiteLogo = styled.img`
-  margin: auto;
-  cursor: pointer;
-  width: 100px;
-`
-
-const Ul = styled.ul`
-  @media screen and (max-width: 767px) {
-    display: none;
-  }
-`
-
-const Li = styled.li`
-  display: inline-box;
-`
-
-const NavItem = styled.div`
-  color: ${(props) => props.theme.COLOR.FONT.NAV_ITEM};
-  text-decoration: none;
-  display: inline-block;
-  margin-left: ${(props) => props.theme.SIZE.MARGIN.LARGE}px;
-  cursor: pointer;
-`
-
-const SpIcons = styled.div`
-  display: flex;
-
-  @media screen and (min-width: 768px) {
-    display: none;
-  }
-`
-
-const P = styled.p`
-  margin-left: ${(props) => props.theme.SIZE.MARGIN.LARGE}px;
-  cursor: pointer;
-`
-
 const CommonHeader: React.FC = () => {
   const [isScrollTop, setIsScrollTop] = useState(true)
+  
   const ScrollEvent = () => {
     if (window.scrollY === 0) {
       return setIsScrollTop(true)
@@ -82,46 +15,63 @@ const CommonHeader: React.FC = () => {
       return setIsScrollTop(false)
     }
   }
+  
   useEffect(() => {
     window.addEventListener('scroll', ScrollEvent)
     return () => {
       window.removeEventListener('scroll', ScrollEvent)
     }
   }, [])
+  
   return (
-    <Wrapper $isScrollTop={isScrollTop}>
-      <Inner>
-        <TitleWrapper>
+    <header 
+      className={`fixed top-0 w-full h-header transition-all duration-200 shadow-[0px_4px_5px_0px_rgb(0_0_0_/_14%),0px_1px_10px_0px_rgb(0_0_0_/_12%),0px_2px_4px_-1px_rgb(0_0_0_/_20%)]`}
+      style={{
+        backgroundColor: isScrollTop ? '#555' : 'rgba(0, 0, 0, 0.5)'
+      }}
+    >
+      <div className="mx-auto px-24 max-w-1120 h-full flex justify-between">
+        <div className="h-full flex">
           <Link href="/">
-            <SiteLogo src="/img/OKLog_light.svg" alt="OKLog" />
+            <img 
+              src="/img/OKLog_light.svg" 
+              alt="OKLog" 
+              className="my-auto cursor-pointer w-[100px]"
+            />
           </Link>
-        </TitleWrapper>
-        <Ul>
-          <Li>
+        </div>
+        
+        <ul className="hidden md:block">
+          <li className="inline-block">
             <Link href="/articles">
-              <NavItem>Articles</NavItem>
+              <div className="text-font-navItem no-underline inline-block ml-16 cursor-pointer">
+                Articles
+              </div>
             </Link>
-          </Li>
-          <Li>
+          </li>
+          <li className="inline-block">
             <Link href="/about">
-              <NavItem>About</NavItem>
+              <div className="text-font-navItem no-underline inline-block ml-16 cursor-pointer">
+                About
+              </div>
             </Link>
-          </Li>
-        </Ul>
-        <SpIcons>
+          </li>
+        </ul>
+        
+        <div className="flex md:hidden">
           <Link href="/articles">
-            <P>
+            <p className="ml-16 cursor-pointer">
               <PostIcon />
-            </P>
+            </p>
           </Link>
           <Link href="/about">
-            <P>
+            <p className="ml-16 cursor-pointer">
               <ProfileIcon />
-            </P>
+            </p>
           </Link>
-        </SpIcons>
-      </Inner>
-    </Wrapper>
+        </div>
+      </div>
+    </header>
   )
 }
 

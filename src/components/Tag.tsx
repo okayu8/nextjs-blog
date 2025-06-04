@@ -1,31 +1,15 @@
 import React from 'react'
-import styled from 'styled-components'
 
 type Props = {
   tag: string
 }
 
-const Wrapper = styled.div`
-  margin: ${(props) => props.theme.SIZE.MARGIN.SMALL}px;
-  padding: 4px 8px;
-  font-size: ${(props) => props.theme.SIZE.FONT.SMALL}px;
-  font-weight: 700;
-  color: ${(props) => props.theme.COLOR.FONT.WHITE};
-  background: ${(props) => props.theme.COLOR.BACKGROUND.TAG};
-  border-radius: 16px;
-  cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  transition: all 0.1s;
-
-  &:hover {
-    background: ${(props) => props.theme.COLOR.BACKGROUND.TAG_HOEVER};
-  }
-`
-
 const Tag = ({ tag }: Props) => {
   return (
     <a href={`/tag/${tag}`} role="button">
-      <Wrapper>{tag}</Wrapper>
+      <div className="m-4 px-8 py-4 text-12 font-bold text-font-white bg-bg-tag rounded-[16px] cursor-pointer shadow-[0_2px_4px_rgba(0,0,0,0.5)] transition-all duration-100 hover:bg-bg-tagHover">
+        {tag}
+      </div>
     </a>
   )
 }

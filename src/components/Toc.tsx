@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react'
-import styled from 'styled-components'
 
 type Props = {
   headlines?: HeadLineType[]
@@ -10,37 +9,6 @@ export type HeadLineType = {
   children: HeadLineType[]
 }
 
-const Title = styled.div`
-  font-size: 1.5em;
-  color: ${(props) => props.theme.COLOR.FONT.DATE};
-`
-
-const OuterUl = styled.ul`
-  padding: 0px 12px 8px 12px;
-  margin-top: 8px;
-  list-style: none;
-  font-size: ${(props) => props.theme.SIZE.FONT.LARGE};
-`
-
-const InnerUl = styled.ul`
-  padding-left: 24px;
-  list-style: none;
-  font-size: ${(props) => props.theme.SIZE.FONT.LARGE};
-`
-
-const Li = styled.li`
-  padding: 4px 0;
-  list-style: none;
-  border-radius: 4px;
-  &:hover {
-    background: ${(props) => props.theme.COLOR.BACKGROUND.BASE_HOVER};
-  }
-`
-
-const TocLink = styled.a`
-  display: block;
-`
-
 const parseTitleToLinkId = (s: string) => {
   const parsed = s.toLowerCase().replace(/\s/g, '-').replace('.', '')
   return `#${parsed}`
@@ -49,18 +17,25 @@ const parseTitleToLinkId = (s: string) => {
 const Toc: React.FC<Props> = ({ headlines }) => {
   const renderHeadline = (headline: HeadLineType) => (
     <Fragment key={headline.title}>
-      <Li>
-        <TocLink href={parseTitleToLinkId(headline.title)}>{headline.title}</TocLink>
-      </Li>
+      <li className="py-4 px-0 list-none rounded hover:bg-bg-baseHover">
+        <a href={parseTitleToLinkId(headline.title)} className="block">
+          {headline.title}
+        </a>
+      </li>
       {(headline.children || []).length > 0 ? (
-        <InnerUl>{(headline.children || []).map((child) => renderHeadline(child))}</InnerUl>
+        <ul className="pl-24 list-none text-18">
+          {(headline.children || []).map((child) => renderHeadline(child))}
+        </ul>
       ) : null}
     </Fragment>
   )
+  
   return (
     <div>
-      <Title>CONTENTS</Title>
-      <OuterUl>{headlines?.map((headline: HeadLineType) => renderHeadline(headline))}</OuterUl>
+      <div className="text-[1.5em] text-font-date">CONTENTS</div>
+      <ul className="px-[12px] pb-8 pl-[12px] mt-8 list-none text-18">
+        {headlines?.map((headline: HeadLineType) => renderHeadline(headline))}
+      </ul>
     </div>
   )
 }
