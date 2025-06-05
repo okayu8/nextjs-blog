@@ -36,9 +36,9 @@ const PostItem: React.FC<Props> = ({
             backgroundSize: 'auto 100%'
           }}
         >
-          <div className="bg-black/60 w-full h-[170px] p-24 absolute bottom-0 left-0">
+          <div className="bg-black/60 w-full h-[200px] px-24 py-16 absolute bottom-0 left-0 flex flex-col justify-start">
             <p className="m-0 text-font-topDate">{createdDate}</p>
-            <p className="m-0 text-24 text-font-white break-words line-clamp-3 overflow-hidden text-ellipsis">{name}</p>
+            <p className="m-0 mt-8 text-24 text-font-white break-words line-clamp-3 overflow-hidden text-ellipsis">{name}</p>
           </div>
         </div>
       </Link>
